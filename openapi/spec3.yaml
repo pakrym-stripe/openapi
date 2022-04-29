@@ -2020,11 +2020,13 @@ components:
           - maxLength: 5000
             type: string
           - "$ref": "#/components/schemas/application"
+          - "$ref": "#/components/schemas/deleted_application"
           description: ID of the Connect Application that created the configuration.
           nullable: true
           x-expansionResources:
             oneOf:
             - "$ref": "#/components/schemas/application"
+            - "$ref": "#/components/schemas/deleted_application"
         business_profile:
           "$ref": "#/components/schemas/portal_business_profile"
         created:
@@ -3718,6 +3720,12 @@ components:
       type: object
       x-expandableFields:
       - mandate_options
+    checkout_alipay_payment_method_options:
+      description: ''
+      properties: {}
+      title: CheckoutAlipayPaymentMethodOptions
+      type: object
+      x-expandableFields: []
     checkout_boleto_payment_method_options:
       description: ''
       properties:
@@ -3764,6 +3772,8 @@ components:
       properties:
         acss_debit:
           "$ref": "#/components/schemas/checkout_acss_debit_payment_method_options"
+        alipay:
+          "$ref": "#/components/schemas/checkout_alipay_payment_method_options"
         boleto:
           "$ref": "#/components/schemas/checkout_boleto_payment_method_options"
         konbini:
@@ -3776,6 +3786,7 @@ components:
       type: object
       x-expandableFields:
       - acss_debit
+      - alipay
       - boleto
       - konbini
       - oxxo
@@ -4942,6 +4953,36 @@ components:
       type: object
       x-expandableFields: []
       x-resourceId: deleted_apple_pay_domain
+    deleted_application:
+      description: ''
+      properties:
+        deleted:
+          description: Always true for a deleted object
+          enum:
+          - true
+          type: boolean
+        id:
+          description: Unique identifier for the object.
+          maxLength: 5000
+          type: string
+        name:
+          description: The name of the application.
+          maxLength: 5000
+          nullable: true
+          type: string
+        object:
+          description: String representing the object's type. Objects of the same
+            type share the same value.
+          enum:
+          - application
+          type: string
+      required:
+      - deleted
+      - id
+      - object
+      title: DeletedApplication
+      type: object
+      x-expandableFields: []
     deleted_bank_account:
       description: ''
       properties:
@@ -7561,6 +7602,18 @@ components:
         amount_remaining:
           description: The amount remaining, in %s, that is due.
           type: integer
+        application:
+          anyOf:
+          - maxLength: 5000
+            type: string
+          - "$ref": "#/components/schemas/application"
+          - "$ref": "#/components/schemas/deleted_application"
+          description: ID of the Connect Application that created the invoice.
+          nullable: true
+          x-expansionResources:
+            oneOf:
+            - "$ref": "#/components/schemas/application"
+            - "$ref": "#/components/schemas/deleted_application"
         application_fee_amount:
           description: The fee in %s that will be applied to the invoice and transferred
             to the application owner's Stripe account when the invoice is paid.
@@ -8075,6 +8128,7 @@ components:
       type: object
       x-expandableFields:
       - account_tax_ids
+      - application
       - automatic_tax
       - charge
       - custom_fields
@@ -8729,12 +8783,13 @@ components:
       properties:
         type:
           description: The type of the tax ID, one of `eu_vat`, `br_cnpj`, `br_cpf`,
-            `gb_vat`, `nz_gst`, `au_abn`, `au_arn`, `in_gst`, `no_vat`, `za_vat`,
-            `ch_vat`, `mx_rfc`, `sg_uen`, `ru_inn`, `ru_kpp`, `ca_bn`, `hk_br`, `es_cif`,
-            `tw_vat`, `th_vat`, `jp_cn`, `jp_rn`, `li_uid`, `my_itn`, `us_ein`, `kr_brn`,
-            `ca_qst`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `my_sst`,
-            `sg_gst`, `ae_trn`, `cl_tin`, `sa_vat`, `id_npwp`, `my_frp`, `il_vat`,
-            `ge_vat`, `ua_vat`, `is_vat`, `bg_uic`, `hu_tin`, `si_tin`, or `unknown`
+            `eu_oss_vat`, `gb_vat`, `nz_gst`, `au_abn`, `au_arn`, `in_gst`, `no_vat`,
+            `za_vat`, `ch_vat`, `mx_rfc`, `sg_uen`, `ru_inn`, `ru_kpp`, `ca_bn`, `hk_br`,
+            `es_cif`, `tw_vat`, `th_vat`, `jp_cn`, `jp_rn`, `li_uid`, `my_itn`, `us_ein`,
+            `kr_brn`, `ca_qst`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`,
+            `my_sst`, `sg_gst`, `ae_trn`, `cl_tin`, `sa_vat`, `id_npwp`, `my_frp`,
+            `il_vat`, `ge_vat`, `ua_vat`, `is_vat`, `bg_uic`, `hu_tin`, `si_tin`,
+            or `unknown`
           enum:
           - ae_trn
           - au_abn
@@ -8751,6 +8806,7 @@ components:
           - ch_vat
           - cl_tin
           - es_cif
+          - eu_oss_vat
           - eu_vat
           - gb_vat
           - ge_vat
@@ -18981,12 +19037,13 @@ components:
       properties:
         type:
           description: The type of the tax ID, one of `eu_vat`, `br_cnpj`, `br_cpf`,
-            `gb_vat`, `nz_gst`, `au_abn`, `au_arn`, `in_gst`, `no_vat`, `za_vat`,
-            `ch_vat`, `mx_rfc`, `sg_uen`, `ru_inn`, `ru_kpp`, `ca_bn`, `hk_br`, `es_cif`,
-            `tw_vat`, `th_vat`, `jp_cn`, `jp_rn`, `li_uid`, `my_itn`, `us_ein`, `kr_brn`,
-            `ca_qst`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`, `my_sst`,
-            `sg_gst`, `ae_trn`, `cl_tin`, `sa_vat`, `id_npwp`, `my_frp`, `il_vat`,
-            `ge_vat`, `ua_vat`, `is_vat`, `bg_uic`, `hu_tin`, `si_tin`, or `unknown`
+            `eu_oss_vat`, `gb_vat`, `nz_gst`, `au_abn`, `au_arn`, `in_gst`, `no_vat`,
+            `za_vat`, `ch_vat`, `mx_rfc`, `sg_uen`, `ru_inn`, `ru_kpp`, `ca_bn`, `hk_br`,
+            `es_cif`, `tw_vat`, `th_vat`, `jp_cn`, `jp_rn`, `li_uid`, `my_itn`, `us_ein`,
+            `kr_brn`, `ca_qst`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`, `ca_pst_sk`,
+            `my_sst`, `sg_gst`, `ae_trn`, `cl_tin`, `sa_vat`, `id_npwp`, `my_frp`,
+            `il_vat`, `ge_vat`, `ua_vat`, `is_vat`, `bg_uic`, `hu_tin`, `si_tin`,
+            or `unknown`
           enum:
           - ae_trn
           - au_abn
@@ -19003,6 +19060,7 @@ components:
           - ch_vat
           - cl_tin
           - es_cif
+          - eu_oss_vat
           - eu_vat
           - gb_vat
           - ge_vat
@@ -20520,6 +20578,18 @@ components:
         amount_total:
           description: Total after discounts and taxes are applied.
           type: integer
+        application:
+          anyOf:
+          - maxLength: 5000
+            type: string
+          - "$ref": "#/components/schemas/application"
+          - "$ref": "#/components/schemas/deleted_application"
+          description: ID of the Connect Application that created the quote.
+          nullable: true
+          x-expansionResources:
+            oneOf:
+            - "$ref": "#/components/schemas/application"
+            - "$ref": "#/components/schemas/deleted_application"
         application_fee_amount:
           description: The amount of the application fee (if any) that will be requested
             to be applied to the payment and transferred to the application owner's
@@ -20780,6 +20850,7 @@ components:
       title: Quote
       type: object
       x-expandableFields:
+      - application
       - automatic_tax
       - computed
       - customer
@@ -24733,6 +24804,18 @@ components:
 
         Related guide: [Creating Subscriptions](https://stripe.com/docs/billing/subscriptions/creating).
       properties:
+        application:
+          anyOf:
+          - maxLength: 5000
+            type: string
+          - "$ref": "#/components/schemas/application"
+          - "$ref": "#/components/schemas/deleted_application"
+          description: ID of the Connect Application that created the subscription.
+          nullable: true
+          x-expansionResources:
+            oneOf:
+            - "$ref": "#/components/schemas/application"
+            - "$ref": "#/components/schemas/deleted_application"
         application_fee_percent:
           description: A non-negative decimal between 0 and 100, with at most two
             decimal places. This represents the percentage of the subscription invoice
@@ -25069,6 +25152,7 @@ components:
       title: Subscription
       type: object
       x-expandableFields:
+      - application
       - automatic_tax
       - billing_thresholds
       - customer
@@ -25245,6 +25329,18 @@ components:
 
         Related guide: [Subscription Schedules](https://stripe.com/docs/billing/subscriptions/subscription-schedules).
       properties:
+        application:
+          anyOf:
+          - maxLength: 5000
+            type: string
+          - "$ref": "#/components/schemas/application"
+          - "$ref": "#/components/schemas/deleted_application"
+          description: ID of the Connect Application that created the schedule.
+          nullable: true
+          x-expansionResources:
+            oneOf:
+            - "$ref": "#/components/schemas/application"
+            - "$ref": "#/components/schemas/deleted_application"
         canceled_at:
           description: Time at which the subscription schedule was canceled. Measured
             in seconds since the Unix epoch.
@@ -25374,6 +25470,7 @@ components:
       title: SubscriptionSchedule
       type: object
       x-expandableFields:
+      - application
       - current_phase
       - customer
       - default_settings
@@ -25990,12 +26087,12 @@ components:
         type:
           description: Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`, `bg_uic`,
             `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`, `ca_pst_mb`,
-            `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_vat`, `gb_vat`,
-            `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`, `is_vat`,
-            `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`,
-            `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`,
-            `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`. Note that
-            some legacy tax IDs have type `unknown`
+            `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`, `eu_oss_vat`, `eu_vat`,
+            `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`, `in_gst`,
+            `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`, `my_frp`, `my_itn`,
+            `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`,
+            `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`.
+            Note that some legacy tax IDs have type `unknown`
           enum:
           - ae_trn
           - au_abn
@@ -26012,6 +26109,7 @@ components:
           - ch_vat
           - cl_tin
           - es_cif
+          - eu_oss_vat
           - eu_vat
           - gb_vat
           - ge_vat
@@ -40789,6 +40887,10 @@ paths:
                           x-stripeBypassValidation: true
                       title: payment_method_options_param
                       type: object
+                    alipay:
+                      properties: {}
+                      title: payment_method_options_param
+                      type: object
                     boleto:
                       properties:
                         expires_after_days:
@@ -40798,11 +40900,7 @@ paths:
                     konbini:
                       properties:
                         expires_after_days:
-                          anyOf:
-                          - type: integer
-                          - enum:
-                            - ''
-                            type: string
+                          type: integer
                       title: payment_method_options_param
                       type: object
                     oxxo:
@@ -43369,6 +43467,7 @@ paths:
                         - ch_vat
                         - cl_tin
                         - es_cif
+                        - eu_oss_vat
                         - eu_vat
                         - gb_vat
                         - ge_vat
@@ -47990,11 +48089,11 @@ paths:
                   description: Type of the tax ID, one of `ae_trn`, `au_abn`, `au_arn`,
                     `bg_uic`, `br_cnpj`, `br_cpf`, `ca_bn`, `ca_gst_hst`, `ca_pst_bc`,
                     `ca_pst_mb`, `ca_pst_sk`, `ca_qst`, `ch_vat`, `cl_tin`, `es_cif`,
-                    `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`, `id_npwp`, `il_vat`,
-                    `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`, `li_uid`, `mx_rfc`,
-                    `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`, `ru_inn`, `ru_kpp`,
-                    `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`, `tw_vat`, `ua_vat`,
-                    `us_ein`, or `za_vat`
+                    `eu_oss_vat`, `eu_vat`, `gb_vat`, `ge_vat`, `hk_br`, `hu_tin`,
+                    `id_npwp`, `il_vat`, `in_gst`, `is_vat`, `jp_cn`, `jp_rn`, `kr_brn`,
+                    `li_uid`, `mx_rfc`, `my_frp`, `my_itn`, `my_sst`, `no_vat`, `nz_gst`,
+                    `ru_inn`, `ru_kpp`, `sa_vat`, `sg_gst`, `sg_uen`, `si_tin`, `th_vat`,
+                    `tw_vat`, `ua_vat`, `us_ein`, or `za_vat`
                   enum:
                   - ae_trn
                   - au_abn
@@ -48011,6 +48110,7 @@ paths:
                   - ch_vat
                   - cl_tin
                   - es_cif
+                  - eu_oss_vat
                   - eu_vat
                   - gb_vat
                   - ge_vat
@@ -51644,6 +51744,7 @@ paths:
                     - ch_vat
                     - cl_tin
                     - es_cif
+                    - eu_oss_vat
                     - eu_vat
                     - gb_vat
                     - ge_vat
@@ -52252,6 +52353,7 @@ paths:
                     - ch_vat
                     - cl_tin
                     - es_cif
+                    - eu_oss_vat
                     - eu_vat
                     - gb_vat
                     - ge_vat
