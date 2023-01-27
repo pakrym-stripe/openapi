@@ -1,16 +1,15 @@
----
 resources:
   account:
     business_profile:
-      mcc:
-      name:
-      product_description:
-      support_address:
-      support_email:
-      support_phone:
-      support_url:
-      url:
-    business_type:
+      mcc: null
+      name: null
+      product_description: null
+      support_address: null
+      support_email: null
+      support_phone: null
+      support_url: null
+      url: null
+    business_type: null
     capabilities:
       card_payments: active
       transfers: active
@@ -26,121 +25,112 @@ resources:
       data: []
       has_more: false
       object: list
-      url: "/v1/accounts/acct_1L8366DMHkD87qty/external_accounts"
+      url: /v1/accounts/acct_1MRksEHNa9lRIopl/external_accounts
     future_requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due: []
-      disabled_reason:
+      disabled_reason: null
       errors: []
       eventually_due: []
       past_due: []
       pending_verification: []
-    id: acct_1L8366DMHkD87qty
+    id: acct_1MRksEHNa9lRIopl
     metadata: {}
     object: account
     payouts_enabled: false
     requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due:
-      - business_profile.product_description
-      - business_profile.support_phone
-      - business_profile.url
-      - external_account
-      - tos_acceptance.date
-      - tos_acceptance.ip
+        - business_profile.product_description
+        - business_profile.support_phone
+        - business_profile.url
+        - external_account
+        - tos_acceptance.date
+        - tos_acceptance.ip
       disabled_reason: requirements.past_due
       errors: []
       eventually_due:
-      - business_profile.product_description
-      - business_profile.support_phone
-      - business_profile.url
-      - external_account
-      - tos_acceptance.date
-      - tos_acceptance.ip
+        - business_profile.product_description
+        - business_profile.support_phone
+        - business_profile.url
+        - external_account
+        - tos_acceptance.date
+        - tos_acceptance.ip
       past_due: []
       pending_verification: []
     settings:
       bacs_debit_payments: {}
       branding:
-        icon:
-        logo:
-        primary_color:
-        secondary_color:
+        icon: null
+        logo: null
+        primary_color: null
+        secondary_color: null
       card_issuing:
         tos_acceptance:
-          date:
-          ip:
+          date: null
+          ip: null
       card_payments:
         decline_on:
           avs_failure: true
-          cvc_failure: false
-        statement_descriptor_prefix:
+          cvc_failure: true
+        statement_descriptor_prefix: null
+        statement_descriptor_prefix_kana: null
+        statement_descriptor_prefix_kanji: null
       dashboard:
-        display_name:
+        display_name: null
         timezone: Etc/UTC
       payments:
-        statement_descriptor:
-        statement_descriptor_kana:
-        statement_descriptor_kanji:
+        statement_descriptor: null
+        statement_descriptor_kana: null
+        statement_descriptor_kanji: null
       payouts:
         debit_negative_balances: true
         schedule:
           delay_days: 2
           interval: daily
-        statement_descriptor:
+        statement_descriptor: null
       sepa_debit_payments: {}
     tos_acceptance:
-      date:
-      ip:
-      user_agent:
+      date: null
+      ip: null
+      user_agent: null
     type: standard
   account_link:
     created: 1234567890
     expires_at: 1234567890
     object: account_link
-    url: https://om-manage-mydev.dev.stripe.me/setup/s/EJxu8VaVpQyX
-  alipay_account:
-    created: 1234567890
-    customer:
-    fingerprint: 4VOnQ6O488UjypIF
-    id: aliacc_1L84P2DMHkD87qty8NyLPynC
-    livemode: false
-    metadata: {}
-    object: alipay_account
-    payment_amount: 1000
-    payment_currency: usd
-    reusable: false
-    used: false
-    username: test@example.com
+    url: >-
+      https://crystal-manage-mydev.dev.stripe.me/setup/s/acct_1MRksEHNa9lRIopl/6S0DxbTV11F9
   apple_pay_domain:
     created: 1234567890
     domain_name: example.com
-    id: apwc_1L84P0DMHkD87qty1pda8NlJ
+    id: apwc_1MTsLUHNa9lRIopl85OMEQyu
     livemode: true
     object: apple_pay_domain
   application_fee:
-    account: acct_1L8366DMHkD87qty
+    account: acct_1MRksEHNa9lRIopl
     amount: 100
     amount_refunded: 0
-    application: ca_Lpjst32QTmmVTzhKjd0Ix8vVImrwVKKp
-    balance_transaction: txn_1L84OxDMHkD87qty5jNZU471
-    charge: ch_1L836HDMHkD87qtyw7ukcec1
+    application: ca_NEL1QzpNJ2YEcCSzVrMs8YkMXp40deNT
+    balance_transaction: txn_1MTsLPHNa9lRIoplFr2pRajx
+    charge: ch_1MRksWHNa9lRIopln3GRJ32j
     created: 1234567890
     currency: usd
-    id: fee_1L84P4DMHkD87qtyJ4P0dZbm
+    id: fee_1MTsLdHNa9lRIoplLVOty1V8
     livemode: false
     object: application_fee
-    originating_transaction:
+    originating_transaction: null
     refunded: false
     refunds:
       data: []
       has_more: false
       object: list
-      url: "/v1/application_fees/fee_1L84P4DMHkD87qtyJ4P0dZbm/refunds"
+      url: /v1/application_fees/fee_1MTsLdHNa9lRIoplLVOty1V8/refunds
   apps.secret:
     created: 1234567890
+    expires_at: 1234567890
     id: appsecret_5110QzMIZ0005GiEH1m0419O8KAxCG
     livemode: false
     name: test-secret
@@ -149,46 +139,46 @@ resources:
       type: account
   balance:
     available:
-    - amount: 0
-      currency: usd
-      source_types:
-        card: 0
+      - amount: 0
+        currency: usd
+        source_types:
+          card: 0
     connect_reserved:
-    - amount: 0
-      currency: usd
+      - amount: 0
+        currency: usd
     livemode: false
     object: balance
     pending:
-    - amount: 0
-      currency: usd
-      source_types:
-        card: 0
+      - amount: 0
+        currency: usd
+        source_types:
+          card: 0
   balance_transaction:
     amount: 100
     available_on: 1234567890
     created: 1234567890
     currency: usd
     description: My First Test Charge (created for API docs)
-    exchange_rate:
+    exchange_rate: null
     fee: 0
     fee_details: []
-    id: txn_1L84OxDMHkD87qty5jNZU471
+    id: txn_1MTsLPHNa9lRIoplFr2pRajx
     net: 100
     object: balance_transaction
     reporting_category: charge
-    source: ch_1L836HDMHkD87qtyw7ukcec1
+    source: ch_1MRksWHNa9lRIopln3GRJ32j
     status: available
     type: charge
   bank_account:
     account_holder_name: Jane Austen
     account_holder_type: company
-    account_type:
+    account_type: null
     bank_name: STRIPE TEST BANK
     country: US
     currency: usd
-    customer:
-    fingerprint: w8JhxtW3xVhCnsBG
-    id: ba_1L836UDMHkD87qtyD16KLW5v
+    customer: null
+    fingerprint: 26Il57qoXkOvZN5m
+    id: ba_1MRkspHNa9lRIopl0DXFmDzO
     last4: '6789'
     metadata: {}
     object: bank_account
@@ -196,18 +186,18 @@ resources:
     status: new
   billing_portal.configuration:
     active: true
-    application:
+    application: null
     business_profile:
-      headline:
+      headline: null
       privacy_policy_url: https://example.com/privacy
       terms_of_service_url: https://example.com/terms
     created: 1234567890
-    default_return_url:
+    default_return_url: null
     features:
       customer_update:
         allowed_updates:
-        - email
-        - tax_id
+          - email
+          - tax_id
         enabled: true
       invoice_history:
         enabled: true
@@ -226,65 +216,35 @@ resources:
         default_allowed_updates: []
         enabled: false
         proration_behavior: none
-    id: bpc_1L84P8DMHkD87qty1LVAm0qQ
+    id: bpc_1MTsLiHNa9lRIopl44Big5ki
     is_default: true
     livemode: true
-    metadata:
+    login_page:
+      enabled: false
+      url: null
+    metadata: null
     object: billing_portal.configuration
     updated: 1234567890
   billing_portal.session:
-    configuration: bpc_1L84P8DMHkD87qty5sZZMADV
+    configuration: bpc_1MTsLiHNa9lRIoplgKY1gYsi
     created: 1234567890
-    customer: cus_LpiXsBsUIAF1ME
-    id: bps_1L84P8DMHkD87qty5lSO2UVu
+    customer: cus_NC9A0AfwYlYLKS
+    flow: null
+    id: bps_1MTsLiHNa9lRIoplZECjyG3X
     livemode: true
-    locale:
+    locale: null
     object: billing_portal.session
-    on_behalf_of:
+    on_behalf_of: null
     return_url: https://example.com/account
-    url: https://billing.stripe.com/session/{SESSION_SECRET}
-  bitcoin_receiver:
-    active: false
-    amount: 100
-    amount_received: 0
-    bitcoin_amount: 1757908
-    bitcoin_amount_received: 0
-    bitcoin_uri: bitcoin:test_7i9Fo4b5wXcUAuoVBFrc7nc9HDxD1?amount=0.01757908
-    created: 1234567890
-    currency: usd
-    customer:
-    description: Receiver for John Doe
-    email: test@example.com
-    filled: false
-    id: btcrcv_1L836NDMHkD87qtygl8HhvTA
-    inbound_address: test_7i9Fo4b5wXcUAuoVBFrc7nc9HDxD1
-    livemode: false
-    metadata: {}
-    object: bitcoin_receiver
-    payment:
-    refund_address:
-    transactions:
-      data: []
-      has_more: false
-      object: list
-      url: "/v1/bitcoin/receivers/btcrcv_1L836NDMHkD87qtygl8HhvTA/transactions"
-    uncaptured_funds: false
-    used_for_payment: false
-  bitcoin_transaction:
-    amount: 100
-    bitcoin_amount: 1757908
-    created: 1234567890
-    currency: usd
-    id: btctxn_1L84P3DMHkD87qtyyFeMjwIk
-    object: bitcoin_transaction
-    receiver: btcrcv_1L836NDMHkD87qtygl8HhvTA
+    url: >-
+      https://crystal-customer_portal-mydev.dev.stripe.me/session/{SESSION_SECRET}
   capability:
-    account: acct_1L8366DMHkD87qty
+    account: acct_1MRksEHNa9lRIopl
     future_requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due: []
-      disabled_reason:
+      disabled_reason: null
       errors: []
       eventually_due: []
       past_due: []
@@ -295,346 +255,396 @@ resources:
     requested_at: 1234567890
     requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due: []
-      disabled_reason:
+      disabled_reason: null
       errors: []
       eventually_due: []
       past_due: []
       pending_verification: []
     status: inactive
   card:
-    address_city:
-    address_country:
-    address_line1:
-    address_line1_check:
-    address_line2:
-    address_state:
-    address_zip:
-    address_zip_check:
+    address_city: null
+    address_country: null
+    address_line1: null
+    address_line1_check: null
+    address_line2: null
+    address_state: null
+    address_zip: null
+    address_zip_check: null
     brand: Visa
     country: US
-    customer:
+    customer: null
     cvc_check: pass
-    dynamic_last4:
+    dynamic_last4: null
     exp_month: 8
-    exp_year: 2023
-    fingerprint: SdiMX8qq4Fl2Qa5Y
+    exp_year: 2024
+    fingerprint: hvOCeciLxnZCBtAo
     funding: credit
-    id: card_1L836GDMHkD87qtycwE78x6n
+    id: card_1MRksVHNa9lRIoplQwDCCWle
     last4: '4242'
     metadata: {}
     name: Jenny Rosen
     object: card
-    tokenization_method:
+    tokenization_method: null
   cash_balance:
     available:
-      jpy: 0
-    customer: ''
+      eur: 10000
+    customer: cus_NC9A0AfwYlYLKS
     livemode: false
     object: cash_balance
     settings:
       reconciliation_mode: automatic
+      using_merchant_default: true
   charge:
     amount: 100
     amount_captured: 0
     amount_refunded: 0
-    application:
-    application_fee:
-    application_fee_amount:
-    balance_transaction: txn_1L84OxDMHkD87qty5jNZU471
+    application: null
+    application_fee: null
+    application_fee_amount: null
+    balance_transaction: txn_1MTsLPHNa9lRIoplFr2pRajx
     billing_details:
       address:
-        city:
-        country:
-        line1:
-        line2:
-        postal_code:
-        state:
-      email:
+        city: null
+        country: null
+        line1: null
+        line2: null
+        postal_code: null
+        state: null
+      email: null
       name: Jenny Rosen
-      phone:
-    calculated_statement_descriptor:
+      phone: null
+    calculated_statement_descriptor: null
     captured: false
     created: 1234567890
     currency: usd
-    customer:
+    customer: null
     description: My First Test Charge (created for API docs)
     disputed: false
-    failure_balance_transaction:
-    failure_code:
-    failure_message:
+    failure_balance_transaction: null
+    failure_code: null
+    failure_message: null
     fraud_details: {}
-    id: ch_1L836HDMHkD87qtyw7ukcec1
-    invoice:
+    id: ch_1MRksWHNa9lRIopln3GRJ32j
+    invoice: null
     livemode: false
     metadata: {}
     object: charge
-    on_behalf_of:
-    outcome:
+    on_behalf_of: null
+    outcome: null
     paid: true
-    payment_intent:
-    payment_method: card_1L836GDMHkD87qtycwE78x6n
+    payment_intent: null
+    payment_method: card_1MRksVHNa9lRIoplQwDCCWle
     payment_method_details:
       card:
         brand: visa
         checks:
-          address_line1_check:
-          address_postal_code_check:
+          address_line1_check: null
+          address_postal_code_check: null
           cvc_check: pass
         country: US
         exp_month: 8
-        exp_year: 2023
-        fingerprint: SdiMX8qq4Fl2Qa5Y
+        exp_year: 2024
+        fingerprint: hvOCeciLxnZCBtAo
         funding: credit
-        installments:
+        installments: null
         last4: '4242'
-        mandate:
+        mandate: null
         network: visa
-        three_d_secure:
-        wallet:
+        three_d_secure: null
+        wallet: null
       type: card
-    receipt_email:
-    receipt_number:
-    receipt_url: https://om-manage-mydev.dev.stripe.me/receipts/payment/CAcaFwoVYWNjdF8xTDgzNjZETUhrRDg3cXR5KLDf_ZQGMgbPYIJp2oY6LCIasqH8e-ob9fbMr8B3wFx02UUvoDGg0dzTetCwe8GjPLeF8zBtWQ9NPHE8
+    receipt_email: null
+    receipt_number: null
+    receipt_url: >-
+      https://crystal-manage-mydev.dev.stripe.me/receipts/payment/CAcaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKIXowJ4GMgblB7WntfI6LCJv15LQn1u96MuhQtxgtqthmirBo9rLXla1gAJYPTGBW2pmbDubv0TJNVmv
     refunded: false
     refunds:
       data: []
       has_more: false
       object: list
-      url: "/v1/charges/ch_1L836HDMHkD87qtyw7ukcec1/refunds"
-    review:
-    shipping:
-    source_transfer:
-    statement_descriptor:
-    statement_descriptor_suffix:
+      url: /v1/charges/ch_1MRksWHNa9lRIopln3GRJ32j/refunds
+    review: null
+    shipping: null
+    source_transfer: null
+    statement_descriptor: null
+    statement_descriptor_suffix: null
     status: succeeded
-    transfer_data:
-    transfer_group:
+    transfer_data: null
+    transfer_group: null
   checkout.session:
-    after_expiration:
-    allow_promotion_codes:
-    amount_subtotal:
-    amount_total:
+    after_expiration: null
+    allow_promotion_codes: null
+    amount_subtotal: null
+    amount_total: null
     automatic_tax:
       enabled: false
-      status:
-    billing_address_collection:
+      status: null
+    billing_address_collection: null
     cancel_url: https://example.com/cancel
-    client_reference_id:
-    consent:
-    consent_collection:
-    currency:
-    customer:
-    customer_creation:
+    client_reference_id: null
+    consent: null
+    consent_collection: null
+    created: 1234567890
+    currency: null
+    custom_text:
+      shipping_address: null
+      submit: null
+    customer: null
+    customer_creation: null
     customer_details:
-    customer_email:
+      address: null
+      email: example@example.com
+      name: null
+      phone: null
+      tax_exempt: none
+      tax_ids: null
+    customer_email: null
     expires_at: 1234567890
-    id: cs_test_a17kC5Mk2svVb9hVR8ODJaXusGuhspCttSoGkBY1KkNQzUWK2sIcJXukHs
+    id: cs_test_a1MAH8g91HuCN8bkMk8Ns9ZZRuBIevKVMIpFnoBIUN0iOlni24TazcsXrC
+    invoice: null
+    invoice_creation: null
     livemode: false
-    locale:
+    locale: null
     metadata: {}
     mode: payment
     object: checkout.session
-    payment_intent: pi_1L836IDMHkD87qty9MYDaAsO
-    payment_link:
+    payment_intent: pi_1MRksZHNa9lRIoplufsGhuQZ
+    payment_link: null
+    payment_method_collection: null
     payment_method_options: {}
     payment_method_types:
-    - card
+      - card
     payment_status: unpaid
     phone_number_collection:
       enabled: false
-    recovered_from:
-    setup_intent:
-    shipping:
-    shipping_address_collection:
+    recovered_from: null
+    setup_intent: null
+    shipping_address_collection: null
+    shipping_cost: null
+    shipping_details: null
     shipping_options: []
-    shipping_rate:
-    status: expired
-    submit_type:
-    subscription:
+    status: open
+    submit_type: null
+    subscription: null
     success_url: https://example.com/success
-    total_details:
-    url:
+    total_details: null
+    url: >-
+      https://checkout.stripe.com/pay/c/cs_test_a1MAH8g91HuCN8bkMk8Ns9ZZRuBIevKVMIpFnoBIUN0iOlni24TazcsXrC
   country_spec:
     default_currency: usd
     id: US
     object: country_spec
     supported_bank_account_currencies:
       usd:
-      - US
+        - US
     supported_payment_currencies:
-    - "..."
-    - aed
-    - afn
-    - usd
+      - ...
+      - aed
+      - afn
+      - usd
     supported_payment_methods:
-    - ach
-    - card
-    - stripe
+      - ach
+      - card
+      - stripe
     supported_transfer_countries:
-    - AE
-    - AG
-    - AR
-    - AT
-    - AU
-    - BD
-    - BE
-    - BG
-    - BH
-    - BJ
-    - BO
-    - CA
-    - CH
-    - CI
-    - CL
-    - CO
-    - CR
-    - CY
-    - CZ
-    - DE
-    - DK
-    - DO
-    - EE
-    - EG
-    - ES
-    - FI
-    - FR
-    - GB
-    - GH
-    - GM
-    - GR
-    - GT
-    - GY
-    - HK
-    - HR
-    - HU
-    - ID
-    - IE
-    - IL
-    - IS
-    - IT
-    - JM
-    - JP
-    - KE
-    - KR
-    - KW
-    - LC
-    - LI
-    - LT
-    - LU
-    - LV
-    - MA
-    - MC
-    - MT
-    - MU
-    - MX
-    - NA
-    - NE
-    - NL
-    - 'NO'
-    - NZ
-    - PE
-    - PH
-    - PL
-    - PT
-    - PY
-    - RO
-    - RS
-    - SA
-    - SE
-    - SG
-    - SI
-    - SK
-    - SM
-    - SN
-    - TH
-    - TN
-    - TR
-    - TT
-    - US
-    - UY
-    - ZA
+      - AE
+      - AG
+      - AL
+      - AM
+      - AO
+      - AR
+      - AT
+      - AU
+      - AZ
+      - BA
+      - BD
+      - BE
+      - BG
+      - BH
+      - BJ
+      - BN
+      - BO
+      - BS
+      - BT
+      - BW
+      - CA
+      - CH
+      - CI
+      - CL
+      - CO
+      - CR
+      - CY
+      - CZ
+      - DE
+      - DK
+      - DO
+      - DZ
+      - EC
+      - EE
+      - EG
+      - ES
+      - ET
+      - FI
+      - FR
+      - GA
+      - GB
+      - GH
+      - GM
+      - GR
+      - GT
+      - GY
+      - HK
+      - HR
+      - HU
+      - ID
+      - IE
+      - IL
+      - IS
+      - IT
+      - JM
+      - JO
+      - JP
+      - KE
+      - KH
+      - KR
+      - KW
+      - LA
+      - LC
+      - LI
+      - LK
+      - LT
+      - LU
+      - LV
+      - MA
+      - MC
+      - MD
+      - MG
+      - MK
+      - MN
+      - MO
+      - MT
+      - MU
+      - MX
+      - MY
+      - MZ
+      - NA
+      - NE
+      - NG
+      - NL
+      - 'NO'
+      - NZ
+      - OM
+      - PA
+      - PE
+      - PH
+      - PL
+      - PT
+      - PY
+      - QA
+      - RO
+      - RS
+      - RW
+      - SA
+      - SE
+      - SG
+      - SI
+      - SK
+      - SM
+      - SN
+      - SV
+      - TH
+      - TN
+      - TR
+      - TT
+      - TW
+      - TZ
+      - US
+      - UY
+      - UZ
+      - VN
+      - ZA
     verification_fields:
       company:
         additional: []
         minimum:
-        - business_profile.mcc
-        - business_profile.url
-        - business_type
-        - company.address.city
-        - company.address.line1
-        - company.address.postal_code
-        - company.address.state
-        - company.name
-        - company.owners_provided
-        - company.phone
-        - company.tax_id
-        - external_account
-        - owners.address.city
-        - owners.address.line1
-        - owners.address.postal_code
-        - owners.address.state
-        - owners.dob.day
-        - owners.dob.month
-        - owners.dob.year
-        - owners.email
-        - owners.first_name
-        - owners.id_number
-        - owners.last_name
-        - owners.phone
-        - owners.ssn_last_4
-        - owners.verification.document
-        - representative.address.city
-        - representative.address.line1
-        - representative.address.postal_code
-        - representative.address.state
-        - representative.dob.day
-        - representative.dob.month
-        - representative.dob.year
-        - representative.email
-        - representative.first_name
-        - representative.id_number
-        - representative.last_name
-        - representative.phone
-        - representative.relationship.executive
-        - representative.relationship.title
-        - representative.ssn_last_4
-        - representative.verification.document
-        - tos_acceptance.date
-        - tos_acceptance.ip
+          - business_profile.mcc
+          - business_profile.url
+          - business_type
+          - company.address.city
+          - company.address.line1
+          - company.address.postal_code
+          - company.address.state
+          - company.name
+          - company.owners_provided
+          - company.phone
+          - company.tax_id
+          - external_account
+          - owners.address.city
+          - owners.address.line1
+          - owners.address.postal_code
+          - owners.address.state
+          - owners.dob.day
+          - owners.dob.month
+          - owners.dob.year
+          - owners.email
+          - owners.first_name
+          - owners.id_number
+          - owners.last_name
+          - owners.phone
+          - owners.ssn_last_4
+          - owners.verification.document
+          - representative.address.city
+          - representative.address.line1
+          - representative.address.postal_code
+          - representative.address.state
+          - representative.dob.day
+          - representative.dob.month
+          - representative.dob.year
+          - representative.email
+          - representative.first_name
+          - representative.id_number
+          - representative.last_name
+          - representative.phone
+          - representative.relationship.executive
+          - representative.relationship.title
+          - representative.ssn_last_4
+          - representative.verification.document
+          - tos_acceptance.date
+          - tos_acceptance.ip
       individual:
         additional: []
         minimum:
-        - business_profile.mcc
-        - business_profile.url
-        - business_type
-        - external_account
-        - individual.address.city
-        - individual.address.line1
-        - individual.address.postal_code
-        - individual.address.state
-        - individual.dob.day
-        - individual.dob.month
-        - individual.dob.year
-        - individual.email
-        - individual.first_name
-        - individual.id_number
-        - individual.last_name
-        - individual.phone
-        - individual.ssn_last_4
-        - individual.verification.document
-        - tos_acceptance.date
-        - tos_acceptance.ip
+          - business_profile.mcc
+          - business_profile.url
+          - business_type
+          - external_account
+          - individual.address.city
+          - individual.address.line1
+          - individual.address.postal_code
+          - individual.address.state
+          - individual.dob.day
+          - individual.dob.month
+          - individual.dob.year
+          - individual.email
+          - individual.first_name
+          - individual.id_number
+          - individual.last_name
+          - individual.phone
+          - individual.ssn_last_4
+          - individual.verification.document
+          - tos_acceptance.date
+          - tos_acceptance.ip
   coupon:
-    amount_off:
+    amount_off: null
     created: 1234567890
     currency: usd
     duration: repeating
     duration_in_months: 3
     id: Z4OV52SU
     livemode: false
-    max_redemptions:
+    max_redemptions: null
     metadata: {}
     name: 25.5% off
     object: coupon
@@ -646,141 +656,169 @@ resources:
     amount: 1690
     created: 1234567890
     currency: usd
-    customer: cus_LpiXsBsUIAF1ME
-    customer_balance_transaction:
+    customer: cus_NC9A0AfwYlYLKS
+    customer_balance_transaction: null
     discount_amount: 0
     discount_amounts: []
-    id: cn_1L84P8DMHkD87qtyyCHvArLU
-    invoice: in_1L84P8DMHkD87qty9gBnoV0M
+    id: cn_1MTsLiHNa9lRIopltZgOYhZY
+    invoice: in_1MTsLiHNa9lRIoplx7bRVTlp
     lines:
       data:
-      - amount: 1190
-        description: My First Invoice Item (created for API docs)
-        discount_amount: 0
-        discount_amounts: []
-        id: cnli_1L84P8DMHkD87qty8i9bXDTI
-        invoice_line_item: il_1L84P8DMHkD87qtyUBLxrrTQ
-        livemode: false
-        object: credit_note_line_item
-        quantity: 1
-        tax_amounts:
-        - amount: 190
-          inclusive: false
-          tax_rate: txr_1L84P8DMHkD87qtykIWp5yqT
-        tax_rates:
-        - active: true
-          country: DE
-          created: 1654615994
-          description: VAT Germany
-          display_name: VAT
-          id: txr_1L84P8DMHkD87qtykIWp5yqT
-          inclusive: false
-          jurisdiction: DE
+        - amount: 1190
+          amount_excluding_tax: 1190
+          description: My First Invoice Item (created for API docs)
+          discount_amount: 0
+          discount_amounts: []
+          id: cnli_1MTsLiHNa9lRIoplbNlvXGVx
+          invoice_line_item: il_1MTsLiHNa9lRIoplnxRawBdi
           livemode: false
-          metadata: {}
-          object: tax_rate
-          percentage: 19.0
-          state:
-          tax_type: vat
-        type: invoice_line_item
-        unit_amount:
-        unit_amount_decimal:
-      - amount: 500
-        description: Service credit
-        discount_amount: 0
-        discount_amounts: []
-        id: cnli_1L84P8DMHkD87qtycLRjalAk
-        livemode: false
-        object: credit_note_line_item
-        quantity: 1
-        tax_amounts: []
-        tax_rates: []
-        type: custom_line_item
-        unit_amount: 500
-        unit_amount_decimal: '500'
+          object: credit_note_line_item
+          quantity: 1
+          tax_amounts:
+            - amount: 190
+              inclusive: false
+              tax_rate: txr_1MTsLiHNa9lRIoploNsBoy4J
+          tax_rates:
+            - active: true
+              country: DE
+              created: 1674589206
+              description: VAT Germany
+              display_name: VAT
+              id: txr_1MTsLiHNa9lRIoploNsBoy4J
+              inclusive: false
+              jurisdiction: DE
+              livemode: false
+              metadata: {}
+              object: tax_rate
+              percentage: 19
+              state: null
+              tax_type: vat
+          type: invoice_line_item
+          unit_amount: null
+          unit_amount_decimal: null
+          unit_amount_excluding_tax: '1190'
+        - amount: 500
+          amount_excluding_tax: 500
+          description: Service credit
+          discount_amount: 0
+          discount_amounts: []
+          id: cnli_1MTsLiHNa9lRIoplul9d2vLn
+          livemode: false
+          object: credit_note_line_item
+          quantity: 1
+          tax_amounts: []
+          tax_rates: []
+          type: custom_line_item
+          unit_amount: 500
+          unit_amount_decimal: '500'
+          unit_amount_excluding_tax: '500'
       has_more: false
       object: list
-      url: "/v1/credit_notes/cn_1L84P8DMHkD87qtyyCHvArLU/lines"
+      url: /v1/credit_notes/cn_1MTsLiHNa9lRIopltZgOYhZY/lines
     livemode: false
-    memo:
+    memo: null
     metadata: {}
     number: ABCD-1234-CN-01
     object: credit_note
-    out_of_band_amount:
-    pdf: https://om-manage-mydev.dev.stripe.me/credit_notes/acct_1L8366DMHkD87qty/cnst_123456789/pdf?s=ap
-    reason:
-    refund:
+    out_of_band_amount: null
+    pdf: >-
+      https://crystal-manage-mydev.dev.stripe.me/credit_notes/acct_1MRksEHNa9lRIopl/cnst_123456789/pdf?s=ap
+    reason: null
+    refund: null
     status: issued
     subtotal: 1690
+    subtotal_excluding_tax: 1690
     tax_amounts:
-    - amount: 190
-      inclusive: false
-      tax_rate: txr_1L84P8DMHkD87qtykIWp5yqT
+      - amount: 190
+        inclusive: false
+        tax_rate: txr_1MTsLiHNa9lRIoploNsBoy4J
     total: 1690
+    total_excluding_tax: null
     type: pre_payment
     voided_at: 1234567890
   credit_note_line_item:
     amount: 1000
+    amount_excluding_tax: 1000
     description: My First Invoice Item (created for API docs)
     discount_amount: 0
     discount_amounts: []
-    id: cnli_1L84P9DMHkD87qtyhrQJsDlW
-    invoice_line_item: il_1L84P9DMHkD87qtyfwbbZ8c5
+    id: cnli_1MTsLjHNa9lRIoplRNofpkLL
+    invoice_line_item: il_1MTsLiHNa9lRIoplD30qdowS
     livemode: false
     object: credit_note_line_item
     quantity: 1
     tax_amounts: []
     tax_rates: []
     type: invoice_line_item
-    unit_amount:
-    unit_amount_decimal:
+    unit_amount: null
+    unit_amount_decimal: null
+    unit_amount_excluding_tax: '1000'
   customer:
-    address:
+    address: null
     balance: 0
     created: 1234567890
     currency: usd
-    default_source:
+    default_source: null
     delinquent: false
-    description:
-    discount:
-    email:
-    id: cus_LpiXsBsUIAF1ME
-    invoice_prefix: 474B0BF
+    description: null
+    discount: null
+    email: null
+    id: cus_NC9A0AfwYlYLKS
+    invoice_prefix: 6863E9A
     invoice_settings:
-      custom_fields:
-      default_payment_method:
-      footer:
+      custom_fields: null
+      default_payment_method: null
+      footer: null
+      rendering_options: null
     livemode: false
     metadata: {}
-    name:
+    name: null
     next_invoice_sequence: 1
     object: customer
-    phone:
+    phone: null
     preferred_locales: []
-    shipping:
+    shipping: null
     tax_exempt: none
-    test_clock:
+    test_clock: null
   customer_balance_transaction:
     amount: -500
     created: 1234567890
-    credit_note:
+    credit_note: null
     currency: usd
-    customer: cus_LpiXsBsUIAF1ME
-    description:
+    customer: cus_NC9A0AfwYlYLKS
+    description: null
     ending_balance: -500
-    id: cbtxn_1L84P1DMHkD87qty7S3Nq48O
-    invoice:
+    id: cbtxn_1MTsLYHNa9lRIoplo3Z0Pxp8
+    invoice: null
     livemode: false
-    metadata:
+    metadata: null
     object: customer_balance_transaction
     type: adjustment
+  customer_cash_balance_transaction:
+    created: 1234567890
+    currency: eur
+    customer: cus_NC9A0AfwYlYLKS
+    ending_balance: 10000
+    funded:
+      bank_transfer:
+        eu_bank_transfer:
+          bic: BANKDEAAXXX
+          iban_last4: '7089'
+          sender_name: Sample Business GmbH
+        reference: Payment for Invoice 6863E9A-155
+        type: eu_bank_transfer
+    id: ccsbtxn_1MTsLYHNa9lRIopll7HTWcQK
+    livemode: false
+    net_amount: 5000
+    object: customer_cash_balance_transaction
+    type: funded
   deleted_account:
     deleted: true
-    id: acct_1L8366DMHkD87qty
+    id: acct_1MRksEHNa9lRIopl
     object: account
   deleted_apple_pay_domain:
     deleted: true
-    id: apwc_1L84P0DMHkD87qty1pda8NlJ
+    id: apwc_1MTsLUHNa9lRIopl85OMEQyu
     object: apple_pay_domain
   deleted_coupon:
     deleted: true
@@ -788,25 +826,26 @@ resources:
     object: coupon
   deleted_customer:
     deleted: true
-    id: cus_LpiXsBsUIAF1ME
+    id: cus_NC9A0AfwYlYLKS
     object: customer
   deleted_discount:
     coupon:
-      amount_off:
+      amount_off: null
       applies_to:
         products: []
       created: 0
-      currency:
+      currency: null
+      currency_options: {}
       duration: forever
-      duration_in_months:
+      duration_in_months: null
       id: ''
       livemode: false
-      max_redemptions:
-      metadata:
-      name:
+      max_redemptions: null
+      metadata: null
+      name: null
       object: coupon
-      percent_off:
-      redeem_by:
+      percent_off: null
+      redeem_by: null
       times_redeemed: 0
       valid: false
     deleted: true
@@ -815,55 +854,47 @@ resources:
     start: 1234567890
   deleted_external_account:
     deleted: true
-    id: ba_1L836UDMHkD87qtyD16KLW5v
+    id: ba_1MRkspHNa9lRIopl0DXFmDzO
     object: bank_account
   deleted_invoice:
     deleted: true
-    id: in_1L84OzDMHkD87qtyc63csqNC
+    id: in_1MTsLTHNa9lRIoplDt2bRSkL
     object: invoice
   deleted_invoiceitem:
     deleted: true
-    id: ii_1L84P1DMHkD87qtyVs20L1Y8
+    id: ii_1MTsLZHNa9lRIopldKlej636
     object: invoiceitem
   deleted_payment_source:
     deleted: true
-    id: aliacc_1L84P2DMHkD87qty8NyLPynC
-    object: alipay_account
+    id: ba_1MRkspHNa9lRIopl0DXFmDzO
+    object: bank_account
   deleted_person:
     deleted: true
-    id: person_1L84P8DMHkD87qtyR3RhdlfX
+    id: person_1MTsLhHNa9lRIoplIpBYZgBl
     object: person
   deleted_plan:
     deleted: true
-    id: price_1L836KDMHkD87qtyef9nyTYY
+    id: price_1MRksaHNa9lRIoplH4A6Mm7D
     object: plan
   deleted_product:
     deleted: true
-    id: prod_LpiX0z67VPC23H
+    id: prod_NC9An41hCnC9tt
     object: product
   deleted_radar.value_list:
     deleted: true
-    id: rsl_1L84P8DMHkD87qtydvZ5tN7Z
+    id: rsl_1MTsLhHNa9lRIoplfFlc7cGa
     object: radar.value_list
   deleted_radar.value_list_item:
     deleted: true
-    id: rsli_1L84P8DMHkD87qtyv4CqFUic
+    id: rsli_1MTsLhHNa9lRIoplwixbGVzi
     object: radar.value_list_item
-  deleted_recipient:
-    deleted: true
-    id: rp_1L84P4DMHkD87qty0A68zftE
-    object: recipient
-  deleted_sku:
-    deleted: true
-    id: sku_Lpjs1FuOlgKNOl
-    object: sku
   deleted_subscription_item:
     deleted: true
-    id: si_Lpjsx7J1icWdKC
+    id: si_NEL1tuUtZUHKVm
     object: subscription_item
   deleted_tax_id:
     deleted: true
-    id: txi_1L84P8DMHkD87qtyAEjHp3bk
+    id: txi_1MTsLiHNa9lRIoplGWNmAM9A
     object: tax_id
   deleted_terminal.configuration:
     deleted: true
@@ -871,131 +902,131 @@ resources:
     object: terminal.configuration
   deleted_terminal.location:
     deleted: true
-    id: tml_95ctwuVxCTKzSURQoa2vsVS9
+    id: tml_zTVss7vWGaM6O8G1ujSRMpcm
     object: terminal.location
   deleted_terminal.reader:
     deleted: true
-    id: tmr_arJS1ZvK8TldUPxRwRM8cMRZ
+    id: tmr_igA8ZBzdDwJQsQk5dTbznML6
     object: terminal.reader
   deleted_test_helpers.test_clock:
     deleted: true
-    id: clock_1L84P2DMHkD87qtyREqHiHmP
+    id: clock_1MTsLbHNa9lRIopluGDouTPT
     object: test_helpers.test_clock
   deleted_webhook_endpoint:
     deleted: true
-    id: we_1L84P5DMHkD87qtyQ8GVPdjV
+    id: we_1MTsLeHNa9lRIoplb4lp6iFZ
     object: webhook_endpoint
   discount:
-    checkout_session:
+    checkout_session: null
     coupon:
-      amount_off:
-      created: 1654615987
+      amount_off: null
+      created: 1674589199
       currency: usd
       duration: repeating
       duration_in_months: 3
       id: Z4OV52SU
       livemode: false
-      max_redemptions:
+      max_redemptions: null
       metadata: {}
       name: 25.5% off
       object: coupon
       percent_off: 25.5
-      redeem_by:
+      redeem_by: null
       times_redeemed: 0
       valid: true
-    customer: cus_LpiXsBsUIAF1ME
+    customer: cus_NC9A0AfwYlYLKS
     end: 1234567890
-    id: di_1L84P2DMHkD87qtyMp1NAJ5P
-    invoice:
-    invoice_item:
+    id: di_1MTsLbHNa9lRIopl5xR3FbyD
+    invoice: null
+    invoice_item: null
     object: discount
-    promotion_code:
+    promotion_code: null
     start: 1234567890
-    subscription:
+    subscription: null
   dispute:
     amount: 1000
     balance_transactions: []
-    charge: ch_1L836HDMHkD87qtyw7ukcec1
+    charge: ch_1MRksWHNa9lRIopln3GRJ32j
     created: 1234567890
     currency: usd
     evidence:
-      access_activity_log:
-      billing_address:
-      cancellation_policy:
-      cancellation_policy_disclosure:
-      cancellation_rebuttal:
-      customer_communication:
-      customer_email_address:
-      customer_name:
-      customer_purchase_ip:
-      customer_signature:
-      duplicate_charge_documentation:
-      duplicate_charge_explanation:
-      duplicate_charge_id:
-      product_description:
-      receipt:
-      refund_policy:
-      refund_policy_disclosure:
-      refund_refusal_explanation:
-      service_date:
-      service_documentation:
-      shipping_address:
-      shipping_carrier:
-      shipping_date:
-      shipping_documentation:
-      shipping_tracking_number:
-      uncategorized_file:
-      uncategorized_text:
+      access_activity_log: null
+      billing_address: null
+      cancellation_policy: null
+      cancellation_policy_disclosure: null
+      cancellation_rebuttal: null
+      customer_communication: null
+      customer_email_address: null
+      customer_name: null
+      customer_purchase_ip: null
+      customer_signature: null
+      duplicate_charge_documentation: null
+      duplicate_charge_explanation: null
+      duplicate_charge_id: null
+      product_description: null
+      receipt: null
+      refund_policy: null
+      refund_policy_disclosure: null
+      refund_refusal_explanation: null
+      service_date: null
+      service_documentation: null
+      shipping_address: null
+      shipping_carrier: null
+      shipping_date: null
+      shipping_documentation: null
+      shipping_tracking_number: null
+      uncategorized_file: null
+      uncategorized_text: null
     evidence_details:
-      due_by: 1656287999
+      due_by: 1676246399
       has_evidence: false
       past_due: false
       submission_count: 0
-    id: dp_1L84P0DMHkD87qtyiAJTfKf8
+    id: dp_1MTsLUHNa9lRIopl9L0E7hhl
     is_charge_refundable: true
     livemode: false
     metadata: {}
     object: dispute
-    payment_intent:
+    payment_intent: null
     reason: general
     status: warning_needs_response
   ephemeral_key:
     created: 1234567890
     expires: 1234567890
-    id: ephkey_1L84P8DMHkD87qtyo6AV1doH
+    id: ephkey_1MTsLhHNa9lRIoplTrC0vdDD
     livemode: false
     object: ephemeral_key
   event:
-    api_version:
+    api_version: null
     created: 1234567890
     data:
       object:
         active: true
-        aggregate_usage:
+        aggregate_usage: null
         amount: 2000
         amount_decimal: '2000'
         billing_scheme: per_unit
-        created: 1654610984
+        created: 1674083836
         currency: usd
-        id: price_1L836KDMHkD87qtyef9nyTYY
+        id: price_1MRksaHNa9lRIoplH4A6Mm7D
         interval: month
         interval_count: 1
         livemode: false
         metadata: {}
-        nickname:
+        nickname: null
         object: plan
-        product: prod_LpiX0z67VPC23H
-        tiers_mode:
-        transform_usage:
-        trial_period_days:
+        product: prod_NC9An41hCnC9tt
+        tiers_mode: null
+        transform_usage: null
+        trial_period_days: null
         usage_type: licensed
-    id: evt_1L84P4DMHkD87qty7PmEK0th
+    id: evt_1MTsLeHNa9lRIopl9QqYf8ff
     livemode: false
     object: event
     pending_webhooks: 0
     request:
-      id:
-      idempotency_key:
+      id: null
+      idempotency_key: null
     type: plan.created
   exchange_rate:
     id: rate_7573642d636164
@@ -1004,13 +1035,13 @@ resources:
   external_account:
     account_holder_name: Jane Austen
     account_holder_type: company
-    account_type:
+    account_type: null
     bank_name: STRIPE TEST BANK
     country: US
     currency: usd
-    customer:
-    fingerprint: w8JhxtW3xVhCnsBG
-    id: ba_1L836UDMHkD87qtyD16KLW5v
+    customer: null
+    fingerprint: 26Il57qoXkOvZN5m
+    id: ba_1MRkspHNa9lRIopl0DXFmDzO
     last4: '6789'
     metadata: {}
     object: bank_account
@@ -1018,106 +1049,149 @@ resources:
     status: new
   fee_refund:
     amount: 100
-    balance_transaction:
+    balance_transaction: null
     created: 1234567890
     currency: usd
-    fee: fee_1L84P4DMHkD87qtyJ4P0dZbm
-    id: fr_1L84P4DMHkD87qtynyDx8BVv
+    fee: fee_1MTsLdHNa9lRIoplLVOty1V8
+    id: fr_1MTsLdHNa9lRIopl2tibBzOV
     metadata: {}
     object: fee_refund
   file:
     created: 1234567890
     expires_at: 1234567890
-    filename: file_1L836TDMHkD87qtySUxuyIIR
-    id: file_1L836TDMHkD87qtySUxuyIIR
+    filename: file_1MRksoHNa9lRIoplvsxlcZXE
+    id: file_1MRksoHNa9lRIoplvsxlcZXE
     links:
       data:
-      - created: 1654610993
-        expired: false
-        expires_at:
-        file: file_1L836TDMHkD87qtySUxuyIIR
-        id: link_1L836TDMHkD87qtyPkfCjV3s
-        livemode: false
-        metadata: {}
-        object: file_link
-        url: https://om-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTDgzNjZETUhrRDg3cXR5fGZsX3Rlc3RfWnpzMTgzVzNpeEduUEYwazBRZ1VYMnUz00rCrfDAup
+        - created: 1674516982
+          expired: false
+          expires_at: null
+          file: file_1MRksoHNa9lRIoplvsxlcZXE
+          id: link_1MTZYoHNa9lRIopl0uotEpvF
+          livemode: false
+          metadata: {}
+          object: file_link
+          url: >-
+            https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfbllpQ3ROTFZRSzdrN0xPd3RGU1IzeGQx00Fatn8gHw
+        - created: 1674515192
+          expired: false
+          expires_at: null
+          file: file_1MRksoHNa9lRIoplvsxlcZXE
+          id: link_1MTZ5wHNa9lRIoplUocHMLKK
+          livemode: false
+          metadata: {}
+          object: file_link
+          url: >-
+            https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfVEJmNXlHb1lLaU9wbE1peGEyODkzYTc40021aV0Wm4
+        - created: 1674166525
+          expired: false
+          expires_at: null
+          file: file_1MRksoHNa9lRIoplvsxlcZXE
+          id: link_1MS6OHHNa9lRIoplhat3alDp
+          livemode: false
+          metadata: {}
+          object: file_link
+          url: >-
+            https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfTmJLUTd1YmF1dHhJWjBpZjFLWjlLOUJ400qPZTpfyI
+        - created: 1674159285
+          expired: false
+          expires_at: null
+          file: file_1MRksoHNa9lRIoplvsxlcZXE
+          id: link_1MS4VVHNa9lRIopl7j7ec72e
+          livemode: false
+          metadata: {}
+          object: file_link
+          url: >-
+            https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfYzNPWFhVMm9tQ3NJclh5TUlGSTlVWHZo00MYO3ieK2
+        - created: 1674083850
+          expired: false
+          expires_at: null
+          file: file_1MRksoHNa9lRIoplvsxlcZXE
+          id: link_1MRksoHNa9lRIoplBbi5VgGQ
+          livemode: false
+          metadata: {}
+          object: file_link
+          url: >-
+            https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfZ3czWVRUYjV1bTNIa1RzSUNLNjFDTFZO00szsG6tSl
       has_more: false
       object: list
-      url: "/v1/file_links?file=file_1L836TDMHkD87qtySUxuyIIR"
+      url: /v1/file_links?file=file_1MRksoHNa9lRIoplvsxlcZXE
     object: file
     purpose: dispute_evidence
     size: 9863
-    title:
+    title: null
     type: png
-    url: https://om-upload-mydev.dev.stripe.me/v1/files/file_1L836TDMHkD87qtySUxuyIIR/contents
+    url: >-
+      https://crystal-upload-mydev.dev.stripe.me/v1/files/file_1MRksoHNa9lRIoplvsxlcZXE/contents
   file_link:
     created: 1234567890
     expired: false
     expires_at: 1234567890
-    file: file_1L836TDMHkD87qtySUxuyIIR
-    id: link_1L84P8DMHkD87qtyNd1LJBq2
+    file: file_1MRksoHNa9lRIoplvsxlcZXE
+    id: link_1MTsLiHNa9lRIoplPi9NS3B5
     livemode: false
     metadata: {}
     object: file_link
-    url: https://om-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTDgzNjZETUhrRDg3cXR5fGZsX3Rlc3RfRjFWYXBMdWQwTkZHaGpnM2dBWTRBRDU500W0k5MQAj
+    url: >-
+      https://crystal-upload-mydev.dev.stripe.me/links/MDB8YWNjdF8xTVJrc0VITmE5bFJJb3BsfGZsX3Rlc3RfaE5SYWZWcUVWWTlLWnVLMThFandwNFZN008yMsiCOB
   financial_connections.account:
     account_holder:
-      customer: cus_LpiXsBsUIAF1ME
+      customer: cus_NC9A0AfwYlYLKS
       type: customer
-    balance:
-    balance_refresh:
+    balance: null
+    balance_refresh: null
     category: cash
     created: 1234567890
     display_name: Sample Checking Account
-    id: fca_1L84P9DMHkD87qty102oESwu
+    id: fca_1MTsLjHNa9lRIopl5Xbeq5yi
     institution_name: StripeBank
     last4: '6789'
     livemode: false
     object: financial_connections.account
-    ownership:
-    ownership_refresh:
+    ownership: null
+    ownership_refresh: null
     permissions: []
     status: active
     subcategory: checking
     supported_payment_method_types:
-    - us_bank_account
+      - us_bank_account
   financial_connections.account_owner:
     email: nobody+janesmith@stripe.com
-    id: fcaown_1L84P9DMHkD87qtydCRtVlV2
+    id: fcaown_1MTsLjHNa9lRIopl8uHFCLGS
     name: Jane Smith
     object: financial_connections.account_owner
-    ownership: fcaowns_1L84P9DMHkD87qtynWB1M6jx
-    phone: "+1 555-555-5555"
+    ownership: fcaowns_1MTsLjHNa9lRIopl3egeGytv
+    phone: +1 555-555-5555
     raw_address: 123 Main Street, Everytown USA
     refreshed_at: 1234567890
   financial_connections.session:
     account_holder:
-      customer: cus_LpiXsBsUIAF1ME
+      customer: cus_NC9A0AfwYlYLKS
       type: customer
     accounts:
       data: []
       has_more: false
       object: list
-      url: "/v1/financial_connections/accounts"
+      url: /v1/financial_connections/accounts
     client_secret: fcsess_..._secret_...
-    id: fcsess_1L84P9DMHkD87qtyd684afd4
+    id: fcsess_1MTsLjHNa9lRIoplSf70yATb
     livemode: false
     object: financial_connections.session
     permissions:
-    - balances
-    - payment_method
+      - balances
+      - payment_method
   funding_instructions:
     bank_transfer:
       country: DE
       financial_addresses:
-      - iban:
-          account_holder_name: Stripe Technology Europe Limited
-          bic: SXPYDEHH
-          country: DE
-          iban: DE00000000000000000001
-        supported_networks:
-        - sepa
-        type: iban
+        - iban:
+            account_holder_name: Stripe Technology Europe Limited
+            bic: SXPYDEHH
+            country: DE
+            iban: DE00000000000000000001
+          supported_networks:
+            - sepa
+          type: iban
       type: eu_bank_transfer
     currency: eur
     funding_type: bank_transfer
@@ -1132,14 +1206,14 @@ resources:
         line1: 1234 Main St.
         state: CA
         zip: '94111'
-      error:
+      error: null
       expiration_date:
         day: 1
         month: 12
         year: 2025
       files:
-      - file_LpjsURYVY7EWdRrXJo8VEVrJ
-      - file_LpjskFj6LAOiokJB1jIONy96
+        - file_NEL1k1fkE9nXfjqz6Eq0TCXW
+        - file_NEL1xJfQcS8239DfYtKCD5Q9
       first_name: Jenny
       issued_date:
         day: 1
@@ -1149,214 +1223,214 @@ resources:
       last_name: Rosen
       status: verified
       type: driving_license
-    id: vr_1L84P9DMHkD87qty1Ic3sDGd
+    id: vr_1MTsLjHNa9lRIoplYfOatdQb
     livemode: false
     object: identity.verification_report
     options:
       document: {}
     type: document
-    verification_session: vs_Lpjsoom72fqUGmfx8Bs55hL3
+    verification_session: vs_NEL1JlsLf72OVUScLakwhnhg
   identity.verification_session:
-    client_secret:
+    client_secret: null
     created: 1234567890
-    id: vs_1L84P9DMHkD87qtyRYKC1XJx
-    last_error:
-    last_verification_report: vr_Lpjsd0YOiNLwJvXZW4mdFral
+    id: vs_1MTsLjHNa9lRIopleaTCsg9v
+    last_error: null
+    last_verification_report: vr_NEL10EyAJO8RMkaUagXbsLEz
     livemode: false
     metadata: {}
     object: identity.verification_session
     options:
       document:
         require_matching_selfie: true
-    redaction:
+    redaction: null
     status: verified
     type: document
-    url:
+    url: null
   invoice:
     account_country: US
-    account_name:
-    account_tax_ids:
+    account_name: null
+    account_tax_ids: null
     amount_due: 1000
     amount_paid: 0
     amount_remaining: 1000
-    application:
-    application_fee_amount:
+    application: null
+    application_fee_amount: null
     attempt_count: 0
     attempted: false
     auto_advance: true
     automatic_tax:
       enabled: false
-      status:
+      status: null
     billing_reason: manual
-    charge:
+    charge: null
     collection_method: charge_automatically
     created: 1234567890
     currency: usd
-    custom_fields:
-    customer: cus_LpiXsBsUIAF1ME
-    customer_address:
-    customer_email:
-    customer_name:
-    customer_phone:
-    customer_shipping:
+    custom_fields: null
+    customer: cus_NC9A0AfwYlYLKS
+    customer_address: null
+    customer_email: null
+    customer_name: null
+    customer_phone: null
+    customer_shipping: null
     customer_tax_exempt: none
     customer_tax_ids: []
-    default_payment_method:
-    default_source:
+    default_payment_method: null
+    default_source: null
     default_tax_rates: []
-    description:
-    discount:
+    description: null
+    discount: null
     discounts: []
     due_date: 1234567890
-    ending_balance:
-    footer:
-    hosted_invoice_url:
-    id: in_1L84OzDMHkD87qtyc63csqNC
-    invoice_pdf:
-    last_finalization_error:
+    ending_balance: null
+    footer: null
+    from_invoice: null
+    hosted_invoice_url: null
+    id: in_1MTsLTHNa9lRIoplDt2bRSkL
+    invoice_pdf: null
+    last_finalization_error: null
+    latest_revision: null
     lines:
       data:
-      - amount: 1000
-        currency: usd
-        description: My First Invoice Item (created for API docs)
-        discount_amounts: []
-        discountable: true
-        discounts: []
-        id: il_1L84OzDMHkD87qtyriTqsBOL
-        invoice_item: ii_1L84OzDMHkD87qty9glGTB1t
-        livemode: false
-        metadata: {}
-        object: line_item
-        period:
-          end: 1654615985
-          start: 1654615985
-        price:
-          active: true
-          billing_scheme: per_unit
-          created: 1654610983
+        - amount: 1000
+          amount_excluding_tax: 1000
           currency: usd
-          id: price_1L836JDMHkD87qty4cwJeEZ5
+          description: My First Invoice Item (created for API docs)
+          discount_amounts: []
+          discountable: true
+          discounts: []
+          id: il_1MTsLSHNa9lRIoplbYh0hzU7
+          invoice_item: ii_1MTsLSHNa9lRIopljSvUGpwY
           livemode: false
-          lookup_key:
           metadata: {}
-          nickname:
-          object: price
-          product: prod_LpiX0z67VPC23H
-          recurring:
-          tax_behavior: unspecified
-          tiers_mode:
-          transform_quantity:
-          type: one_time
-          unit_amount: 1000
-          unit_amount_decimal: '1000'
-        proration: false
-        proration_details:
-          credited_items:
-        quantity: 1
-        subscription:
-        tax_amounts: []
-        tax_rates: []
-        type: invoiceitem
+          object: line_item
+          period:
+            end: 1674589190
+            start: 1674589190
+          price:
+            active: true
+            billing_scheme: per_unit
+            created: 1674083835
+            currency: usd
+            custom_unit_amount: null
+            id: price_1MRksZHNa9lRIoplS60FCtXw
+            livemode: false
+            lookup_key: null
+            metadata: {}
+            nickname: null
+            object: price
+            product: prod_NC9An41hCnC9tt
+            recurring: null
+            tax_behavior: unspecified
+            tiers_mode: null
+            transform_quantity: null
+            type: one_time
+            unit_amount: 1000
+            unit_amount_decimal: '1000'
+          proration: false
+          proration_details:
+            credited_items: null
+          quantity: 1
+          subscription: null
+          tax_amounts: []
+          tax_rates: []
+          type: invoiceitem
+          unit_amount_excluding_tax: '1000'
       has_more: false
       object: list
-      url: "/v1/invoices/in_1L84OzDMHkD87qtyc63csqNC/lines"
+      url: /v1/invoices/in_1MTsLTHNa9lRIoplDt2bRSkL/lines
     livemode: false
     metadata: {}
     next_payment_attempt: 1234567890
-    number:
+    number: null
     object: invoice
-    on_behalf_of:
+    on_behalf_of: null
     paid: false
     paid_out_of_band: false
-    payment_intent:
+    payment_intent: null
     payment_settings:
-      payment_method_options:
-      payment_method_types:
+      default_mandate: null
+      payment_method_options: null
+      payment_method_types: null
     period_end: 1234567890
     period_start: 1234567890
     post_payment_credit_notes_amount: 0
     pre_payment_credit_notes_amount: 0
-    quote:
-    receipt_number:
+    quote: null
+    receipt_number: null
+    rendering_options: null
     starting_balance: 0
-    statement_descriptor:
+    statement_descriptor: null
     status: draft
     status_transitions:
-      finalized_at:
-      marked_uncollectible_at:
-      paid_at:
-      voided_at:
-    subscription:
+      finalized_at: null
+      marked_uncollectible_at: null
+      paid_at: null
+      voided_at: null
+    subscription: null
     subtotal: 1000
-    tax:
-    test_clock:
+    subtotal_excluding_tax: 1000
+    tax: null
+    test_clock: null
     total: 1000
     total_discount_amounts: []
+    total_excluding_tax: 1000
     total_tax_amounts: []
-    transfer_data:
+    transfer_data: null
     webhooks_delivered_at: 1234567890
   invoiceitem:
     amount: 1000
     currency: usd
-    customer: cus_LpiXsBsUIAF1ME
+    customer: cus_NC9A0AfwYlYLKS
     date: 1234567890
     description: My First Invoice Item (created for API docs)
     discountable: true
     discounts: []
-    id: ii_1L84P1DMHkD87qtyVs20L1Y8
-    invoice:
+    id: ii_1MTsLZHNa9lRIopldKlej636
+    invoice: null
     livemode: false
     metadata: {}
     object: invoiceitem
     period:
-      end: 1654615987
-      start: 1654615987
+      end: 1674589197
+      start: 1674589197
     price:
       active: true
       billing_scheme: per_unit
-      created: 1654610983
+      created: 1674083835
       currency: usd
-      id: price_1L836JDMHkD87qty4cwJeEZ5
+      custom_unit_amount: null
+      id: price_1MRksZHNa9lRIoplS60FCtXw
       livemode: false
-      lookup_key:
+      lookup_key: null
       metadata: {}
-      nickname:
+      nickname: null
       object: price
-      product: prod_LpiX0z67VPC23H
-      recurring:
+      product: prod_NC9An41hCnC9tt
+      recurring: null
       tax_behavior: unspecified
-      tiers_mode:
-      transform_quantity:
+      tiers_mode: null
+      transform_quantity: null
       type: one_time
       unit_amount: 1000
       unit_amount_decimal: '1000'
     proration: false
     quantity: 1
-    subscription:
+    subscription: null
     tax_rates: []
-    test_clock:
+    test_clock: null
     unit_amount: 1000
     unit_amount_decimal: '1000'
-  issuer_fraud_record:
-    actionable: true
-    charge: ch_1234
-    created: 1234567890
-    fraud_type: misc
-    has_liability_shift: false
-    id: issfr_1L84P8DMHkD87qtyVZl7w1Wr
-    livemode: false
-    object: issuer_fraud_record
-    post_date: 123456789
   issuing.authorization:
     amount: 0
     amount_details:
-      atm_fee:
+      atm_fee: null
     approved: true
     authorization_method: keyed_in
     balance_transactions: []
     card:
       brand: Visa
-      cancellation_reason:
+      cancellation_reason: null
       cardholder:
         billing:
           address:
@@ -1366,58 +1440,58 @@ resources:
             line2: Apt 3
             postal_code: '90210'
             state: CA
-        company:
-        created: 1654610992
+        company: null
+        created: 1674083848
         email: jenny@example.com
-        id: ich_1L836SDMHkD87qty5cRuHjPP
-        individual:
+        id: ich_1MRksmHNa9lRIoplh7dsR8if
+        individual: null
         livemode: false
         metadata: {}
         name: Jenny Rosen
         object: issuing.cardholder
-        phone_number: "+18008675309"
+        phone_number: '+18008675309'
         requirements:
-          disabled_reason:
+          disabled_reason: null
           past_due: []
         spending_controls:
           allowed_categories: []
           blocked_categories: []
           spending_limits: []
-          spending_limits_currency:
+          spending_limits_currency: null
         status: active
         type: individual
-      created: 1654615994
+      created: 1674589205
       currency: usd
       exp_month: 8
-      exp_year: 2023
-      id: ic_1L84P8DMHkD87qty9wpOfaQy
+      exp_year: 2024
+      id: ic_1MTsLhHNa9lRIopl6MTtpoD8
       last4: '4242'
       livemode: false
       metadata: {}
       object: issuing.card
-      replaced_by:
-      replacement_for:
-      replacement_reason:
-      shipping:
+      replaced_by: null
+      replacement_for: null
+      replacement_reason: null
+      shipping: null
       spending_controls:
-        allowed_categories:
-        blocked_categories:
+        allowed_categories: null
+        blocked_categories: null
         spending_limits: []
-        spending_limits_currency:
+        spending_limits_currency: null
       status: active
       type: physical
       wallets:
         apple_pay:
           eligible: true
-          ineligible_reason:
+          ineligible_reason: null
         google_pay:
           eligible: true
-          ineligible_reason:
-        primary_account_identifier:
-    cardholder:
+          ineligible_reason: null
+        primary_account_identifier: null
+    cardholder: null
     created: 1234567890
     currency: usd
-    id: iauth_1L84P8DMHkD87qty0BTteU7m
+    id: iauth_1MTsLhHNa9lRIoplCT6yaayG
     livemode: false
     merchant_amount: 0
     merchant_currency: usd
@@ -1431,11 +1505,12 @@ resources:
       postal_code: '94107'
       state: CA
     metadata: {}
+    network_data: null
     object: issuing.authorization
     pending_request:
       amount: 700
       amount_details:
-        atm_fee:
+        atm_fee: null
       currency: usd
       is_amount_controllable: false
       merchant_amount: 700
@@ -1448,10 +1523,10 @@ resources:
       address_postal_code_check: match
       cvc_check: match
       expiry_check: match
-    wallet:
+    wallet: null
   issuing.card:
     brand: Visa
-    cancellation_reason:
+    cancellation_reason: null
     cardholder:
       billing:
         address:
@@ -1461,54 +1536,54 @@ resources:
           line2: Apt 3
           postal_code: '90210'
           state: CA
-      company:
-      created: 1654610992
+      company: null
+      created: 1674083848
       email: jenny@example.com
-      id: ich_1L836SDMHkD87qty5cRuHjPP
-      individual:
+      id: ich_1MRksmHNa9lRIoplh7dsR8if
+      individual: null
       livemode: false
       metadata: {}
       name: Jenny Rosen
       object: issuing.cardholder
-      phone_number: "+18008675309"
+      phone_number: '+18008675309'
       requirements:
-        disabled_reason:
+        disabled_reason: null
         past_due: []
       spending_controls:
         allowed_categories: []
         blocked_categories: []
         spending_limits: []
-        spending_limits_currency:
+        spending_limits_currency: null
       status: active
       type: individual
     created: 1234567890
     currency: usd
     exp_month: 8
-    exp_year: 2023
-    id: ic_1L84P8DMHkD87qtyEdHgmlPI
+    exp_year: 2024
+    id: ic_1MTsLgHNa9lRIoplaYsQ1gEi
     last4: '4242'
     livemode: false
     metadata: {}
     object: issuing.card
-    replaced_by:
-    replacement_for:
-    replacement_reason:
-    shipping:
+    replaced_by: null
+    replacement_for: null
+    replacement_reason: null
+    shipping: null
     spending_controls:
-      allowed_categories:
-      blocked_categories:
+      allowed_categories: null
+      blocked_categories: null
       spending_limits: []
-      spending_limits_currency:
+      spending_limits_currency: null
     status: active
     type: physical
     wallets:
       apple_pay:
         eligible: true
-        ineligible_reason:
+        ineligible_reason: null
       google_pay:
         eligible: true
-        ineligible_reason:
-      primary_account_identifier:
+        ineligible_reason: null
+      primary_account_identifier: null
   issuing.cardholder:
     billing:
       address:
@@ -1518,24 +1593,24 @@ resources:
         line2: Apt 3
         postal_code: '90210'
         state: CA
-    company:
+    company: null
     created: 1234567890
     email: jenny@example.com
-    id: ich_1L836SDMHkD87qty5cRuHjPP
-    individual:
+    id: ich_1MRksmHNa9lRIoplh7dsR8if
+    individual: null
     livemode: false
     metadata: {}
     name: Jenny Rosen
     object: issuing.cardholder
-    phone_number: "+18008675309"
+    phone_number: '+18008675309'
     requirements:
-      disabled_reason:
+      disabled_reason: null
       past_due: []
     spending_controls:
       allowed_categories: []
       blocked_categories: []
       spending_limits: []
-      spending_limits_currency:
+      spending_limits_currency: null
     status: active
     type: individual
   issuing.dispute:
@@ -1544,21 +1619,21 @@ resources:
     currency: usd
     evidence:
       fraudulent:
-        additional_documentation:
-        explanation: Fraud; card reported lost on 06/07/2022
+        additional_documentation: null
+        explanation: Fraud; card reported lost on 01/24/2023
       reason: fraudulent
-    id: idp_1L84P8DMHkD87qtybLFIl0bL
+    id: idp_1MTsLhHNa9lRIoplSELlusu6
     livemode: false
     metadata: {}
     object: issuing.dispute
     status: unsubmitted
-    transaction: ipi_1L84P8DMHkD87qtyi5nrx2Jr
+    transaction: ipi_1MTsLhHNa9lRIoplRwRDgvgP
   issuing.settlement:
     bin: '424242'
-    clearing_date: 1654615994
+    clearing_date: 1674589205
     created: 1234567890
     currency: usd
-    id: ise_1L84P8DMHkD87qtyAK0TruEa
+    id: ise_1MTsLhHNa9lRIopljX20HFCz
     interchange_fees: 44
     livemode: false
     metadata: {}
@@ -1573,15 +1648,15 @@ resources:
   issuing.transaction:
     amount: -100
     amount_details:
-      atm_fee:
-    authorization: iauth_1L84P8DMHkD87qtyqCAqxG9E
-    balance_transaction:
-    card: ic_1L84P8DMHkD87qty2d0OJT11
-    cardholder: ich_1L836SDMHkD87qty5cRuHjPP
+      atm_fee: null
+    authorization: iauth_1MTsLhHNa9lRIoplE2XRIx7C
+    balance_transaction: null
+    card: ic_1MTsLhHNa9lRIoplbxWrBbLN
+    cardholder: ich_1MRksmHNa9lRIoplh7dsR8if
     created: 1234567890
     currency: usd
-    dispute:
-    id: ipi_1L84P8DMHkD87qtyonYZmSCA
+    dispute: null
+    id: ipi_1MTsLhHNa9lRIoplZ5uiPByG
     livemode: false
     merchant_amount: -100
     merchant_currency: usd
@@ -1599,78 +1674,84 @@ resources:
     type: capture
     wallet: apple_pay
   item:
+    amount_discount: 0
     amount_subtotal: 0
+    amount_tax: 0
     amount_total: 0
     currency: usd
     description: T-shirt
-    id: li_1L84P2DMHkD87qtyWJMTNZZP
+    id: li_1MTsLbHNa9lRIopl9gvAumeZ
     object: item
     price:
       active: true
       billing_scheme: per_unit
-      created: 1654610983
+      created: 1674083835
       currency: usd
-      id: price_1L836JDMHkD87qty4cwJeEZ5
+      custom_unit_amount: null
+      id: price_1MRksZHNa9lRIoplS60FCtXw
       livemode: false
-      lookup_key:
+      lookup_key: null
       metadata: {}
-      nickname:
+      nickname: null
       object: price
-      product: prod_LpiX0z67VPC23H
-      recurring:
+      product: prod_NC9An41hCnC9tt
+      recurring: null
       tax_behavior: unspecified
-      tiers_mode:
-      transform_quantity:
+      tiers_mode: null
+      transform_quantity: null
       type: one_time
       unit_amount: 1000
       unit_amount_decimal: '1000'
     quantity: 1
   line_item:
     amount: 1000
+    amount_excluding_tax: 1000
     currency: usd
     description: My First Invoice Item (created for API docs)
     discount_amounts: []
     discountable: true
     discounts: []
-    id: il_tmp_1L84P1DMHkD87qtyVs20L1Y8
-    invoice_item: ii_1L84P1DMHkD87qtyVs20L1Y8
+    id: il_tmp_1MTsLZHNa9lRIopldKlej636
+    invoice_item: ii_1MTsLZHNa9lRIopldKlej636
     livemode: false
     metadata: {}
     object: line_item
     period:
-      end: 1654615987
-      start: 1654615987
+      end: 1674589197
+      start: 1674589197
     price:
       active: true
       billing_scheme: per_unit
-      created: 1654610983
+      created: 1674083835
       currency: usd
-      id: price_1L836JDMHkD87qty4cwJeEZ5
+      custom_unit_amount: null
+      id: price_1MRksZHNa9lRIoplS60FCtXw
       livemode: false
-      lookup_key:
+      lookup_key: null
       metadata: {}
-      nickname:
+      nickname: null
       object: price
-      product: prod_LpiX0z67VPC23H
-      recurring:
+      product: prod_NC9An41hCnC9tt
+      recurring: null
       tax_behavior: unspecified
-      tiers_mode:
-      transform_quantity:
+      tiers_mode: null
+      transform_quantity: null
       type: one_time
       unit_amount: 1000
       unit_amount_decimal: '1000'
     proration: false
     proration_details:
-      credited_items:
+      credited_items: null
     quantity: 1
-    subscription:
+    subscription: null
     tax_amounts: []
     tax_rates: []
     type: invoiceitem
+    unit_amount_excluding_tax: '1000'
   login_link:
     created: 1234567890
     object: login_link
-    url: https://om-manage-mydev.dev.stripe.me/express/c6rOa9UrJJbf
+    url: https://crystal-manage-mydev.dev.stripe.me/express/S1WkPiwz9ztZ
   mandate:
     customer_acceptance:
       accepted_at: 123456789
@@ -1678,7 +1759,7 @@ resources:
         ip_address: 127.0.0.0
         user_agent: device
       type: online
-    id: mandate_1L84P8DMHkD87qty62cNQmN7
+    id: mandate_1MTsLgHNa9lRIoplAGMsJ6S4
     livemode: false
     multi_use: {}
     object: mandate
@@ -1690,140 +1771,119 @@ resources:
       type: sepa_debit
     status: active
     type: multi_use
-  order:
-    amount_subtotal: 0
-    amount_total: 0
-    application:
-    created: 1234567890
-    currency: usd
-    customer:
-    id: or_1L84P7DMHkD87qtylzJEwSQG
-    livemode: false
-    metadata: {}
-    object: order
-    payment:
-      payment_intent:
-      settings:
-      status:
-    status: canceled
-    total_details:
-      amount_discount: 0
-      amount_shipping:
-      amount_tax: 0
-      breakdown:
-        discounts: []
-        taxes: []
   payment_intent:
     amount: 1099
     amount_capturable: 0
     amount_details:
       tip: {}
     amount_received: 0
-    application:
-    application_fee_amount:
-    automatic_payment_methods:
+    application: null
+    application_fee_amount: null
+    automatic_payment_methods: null
     canceled_at: 1234567890
-    cancellation_reason:
+    cancellation_reason: null
     capture_method: automatic
-    charges:
-      data: []
-      has_more: false
-      object: list
-      url: "/v1/charges?payment_intent=pi_1L836IDMHkD87qty9MYDaAsO"
-    client_secret: pi_1L836IDMHkD87qty9MYDaAsO_secret_omM7iJjAuYaFuLNmqQpWInz8o
+    client_secret: pi_1MRksZHNa9lRIoplufsGhuQZ_secret_fDUXtivq0WpqrFeT5AQ0uC7uT
     confirmation_method: automatic
     created: 1234567890
     currency: usd
-    customer:
-    description:
-    id: pi_1L836IDMHkD87qty9MYDaAsO
-    invoice:
-    last_payment_error:
+    customer: null
+    description: null
+    id: pi_1MRksZHNa9lRIoplufsGhuQZ
+    invoice: null
+    last_payment_error: null
+    latest_charge: null
     livemode: false
     metadata: {}
-    next_action:
+    next_action: null
     object: payment_intent
-    on_behalf_of:
-    payment_method:
+    on_behalf_of: null
+    payment_method: null
     payment_method_options: {}
     payment_method_types:
-    - card
-    processing:
-    receipt_email:
-    review:
-    setup_future_usage:
-    shipping:
-    statement_descriptor:
-    statement_descriptor_suffix:
+      - card
+    processing: null
+    receipt_email: null
+    review: null
+    setup_future_usage: null
+    shipping: null
+    statement_descriptor: null
+    statement_descriptor_suffix: null
     status: requires_payment_method
-    transfer_data:
-    transfer_group:
+    transfer_data: null
+    transfer_group: null
   payment_link:
     active: true
     after_completion:
       hosted_confirmation:
-        custom_message:
+        custom_message: null
       type: hosted_confirmation
     allow_promotion_codes: false
-    application_fee_amount:
-    application_fee_percent:
+    application_fee_amount: null
+    application_fee_percent: null
     automatic_tax:
       enabled: false
     billing_address_collection: auto
-    consent_collection:
+    consent_collection: null
+    currency: usd
+    custom_text:
+      shipping_address: null
+      submit: null
     customer_creation: always
-    id: plink_1L84P8DMHkD87qtyunNqsBts
+    id: plink_1MTsLgHNa9lRIoplXBQGby6y
     livemode: false
     metadata: {}
     object: payment_link
-    on_behalf_of:
-    payment_intent_data:
-    payment_method_types:
+    on_behalf_of: null
+    payment_intent_data: null
+    payment_method_collection: always
+    payment_method_types: null
     phone_number_collection:
       enabled: false
-    shipping_address_collection:
+    shipping_address_collection: null
     shipping_options: []
     submit_type: auto
-    subscription_data:
+    subscription_data: null
     tax_id_collection:
       enabled: false
-    transfer_data:
-    url: https://om-payment_links_ingress-mydev.dev.stripe.me/test_aEUbLu0R919CaSA3cc
+    transfer_data: null
+    url: >-
+      https://crystal-payment_links_ingress-mydev.dev.stripe.me/test_dR616Q0R9dWH1nG4gg
   payment_method:
     billing_details:
       address:
         city: San Francisco
         country: US
         line1: 1234 Fake Street
-        line2:
+        line2: null
         postal_code: '94102'
         state: CA
       email: jenny@example.com
-      name:
-      phone: "+15555555555"
+      name: null
+      phone: '+15555555555'
     card:
       brand: visa
       checks:
-        address_line1_check:
-        address_postal_code_check:
+        address_line1_check: null
+        address_postal_code_check: null
         cvc_check: pass
       country: US
       exp_month: 8
-      exp_year: 2023
-      fingerprint: SdiMX8qq4Fl2Qa5Y
+      exp_year: 2024
+      fingerprint: hvOCeciLxnZCBtAo
       funding: credit
-      generated_from:
+      generated_from: null
       last4: '4242'
       networks:
         available:
-        - visa
-        preferred:
+          - visa
+        preferred: null
       three_d_secure_usage:
         supported: true
-      wallet:
+      wallet: null
     created: 1234567890
-    customer:
-    id: pm_1L84P1DMHkD87qtyT2oeSwAD
+    customer: null
+    id: pm_1MTsLYHNa9lRIoplwsQgTJWq
     livemode: false
     metadata:
       order_id: '123456789'
@@ -1831,15 +1891,15 @@ resources:
     type: card
   payment_source:
     business_profile:
-      mcc:
-      name:
-      product_description:
-      support_address:
-      support_email:
-      support_phone:
-      support_url:
-      url:
-    business_type:
+      mcc: null
+      name: null
+      product_description: null
+      support_address: null
+      support_email: null
+      support_phone: null
+      support_url: null
+      url: null
+    business_type: null
     capabilities:
       card_payments: active
       transfers: active
@@ -1847,7 +1907,7 @@ resources:
     controller:
       type: account
     country: US
-    created: 1654610971
+    created: 1674083814
     default_currency: usd
     details_submitted: false
     email: site@stripe.com
@@ -1855,107 +1915,109 @@ resources:
       data: []
       has_more: false
       object: list
-      url: "/v1/accounts/acct_1L8366DMHkD87qty/external_accounts"
+      url: /v1/accounts/acct_1MRksEHNa9lRIopl/external_accounts
     future_requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due: []
-      disabled_reason:
+      disabled_reason: null
       errors: []
       eventually_due: []
       past_due: []
       pending_verification: []
-    id: acct_1L8366DMHkD87qty
+    id: acct_1MRksEHNa9lRIopl
     metadata: {}
     object: account
     payouts_enabled: false
     requirements:
       alternatives: []
-      current_deadline:
+      current_deadline: null
       currently_due:
-      - business_profile.product_description
-      - business_profile.support_phone
-      - business_profile.url
-      - external_account
-      - tos_acceptance.date
-      - tos_acceptance.ip
+        - business_profile.product_description
+        - business_profile.support_phone
+        - business_profile.url
+        - external_account
+        - tos_acceptance.date
+        - tos_acceptance.ip
       disabled_reason: requirements.past_due
       errors: []
       eventually_due:
-      - business_profile.product_description
-      - business_profile.support_phone
-      - business_profile.url
-      - external_account
-      - tos_acceptance.date
-      - tos_acceptance.ip
+        - business_profile.product_description
+        - business_profile.support_phone
+        - business_profile.url
+        - external_account
+        - tos_acceptance.date
+        - tos_acceptance.ip
       past_due: []
       pending_verification: []
     settings:
       bacs_debit_payments: {}
       branding:
-        icon:
-        logo:
-        primary_color:
-        secondary_color:
+        icon: null
+        logo: null
+        primary_color: null
+        secondary_color: null
       card_issuing:
         tos_acceptance:
-          date:
-          ip:
+          date: null
+          ip: null
       card_payments:
         decline_on:
           avs_failure: true
-          cvc_failure: false
-        statement_descriptor_prefix:
+          cvc_failure: true
+        statement_descriptor_prefix: null
+        statement_descriptor_prefix_kana: null
+        statement_descriptor_prefix_kanji: null
       dashboard:
-        display_name:
+        display_name: null
         timezone: Etc/UTC
       payments:
-        statement_descriptor:
-        statement_descriptor_kana:
-        statement_descriptor_kanji:
+        statement_descriptor: null
+        statement_descriptor_kana: null
+        statement_descriptor_kanji: null
       payouts:
         debit_negative_balances: true
         schedule:
           delay_days: 2
           interval: daily
-        statement_descriptor:
+        statement_descriptor: null
       sepa_debit_payments: {}
     tos_acceptance:
-      date:
-      ip:
-      user_agent:
+      date: null
+      ip: null
+      user_agent: null
     type: standard
   payout:
     amount: 1100
     arrival_date: 1234567890
     automatic: true
-    balance_transaction: txn_1L84OxDMHkD87qty5jNZU471
+    balance_transaction: txn_1MTsLPHNa9lRIoplFr2pRajx
     created: 1234567890
     currency: usd
     description: STRIPE PAYOUT
-    destination: ba_1L84P3DMHkD87qtywjlWHAeV
-    failure_balance_transaction:
-    failure_code:
-    failure_message:
-    id: po_1L84P3DMHkD87qtyPj6LGzTW
+    destination: ba_1MTsLcHNa9lRIoplvgQCCNn0
+    failure_balance_transaction: null
+    failure_code: null
+    failure_message: null
+    id: po_1MTsLcHNa9lRIoplqzIysmik
     livemode: false
     metadata: {}
     method: standard
     object: payout
-    original_payout:
-    reversed_by:
+    original_payout: null
+    reversed_by: null
     source_type: card
-    statement_descriptor:
+    statement_descriptor: null
     status: in_transit
     type: bank_account
   person:
-    account: acct_1L8366DMHkD87qty
+    account: acct_1MRksEHNa9lRIopl
     created: 1234567890
     dob:
-      day:
-      month:
-      year:
-    first_name:
+      day: null
+      month: null
+      year: null
+    first_name: null
     future_requirements:
       alternatives: []
       currently_due: []
@@ -1963,18 +2025,18 @@ resources:
       eventually_due: []
       past_due: []
       pending_verification: []
-    id: person_1L84P8DMHkD87qtyR3RhdlfX
+    id: person_1MTsLhHNa9lRIoplIpBYZgBl
     id_number_provided: false
-    last_name:
+    last_name: null
     metadata: {}
     object: person
     relationship:
       director: false
       executive: false
       owner: false
-      percent_ownership:
+      percent_ownership: null
       representative: false
-      title:
+      title: null
     requirements:
       alternatives: []
       currently_due: []
@@ -1985,123 +2047,124 @@ resources:
     ssn_last_4_provided: false
     verification:
       additional_document:
-        back:
-        details:
-        details_code:
-        front:
-      details:
-      details_code:
+        back: null
+        details: null
+        details_code: null
+        front: null
+      details: null
+      details_code: null
       document:
-        back:
-        details:
-        details_code:
-        front:
+        back: null
+        details: null
+        details_code: null
+        front: null
       status: unverified
   plan:
     active: true
-    aggregate_usage:
+    aggregate_usage: null
     amount: 2000
     amount_decimal: '2000'
     billing_scheme: per_unit
     created: 1234567890
     currency: usd
-    id: price_1L836KDMHkD87qtyef9nyTYY
+    id: price_1MRksaHNa9lRIoplH4A6Mm7D
     interval: month
     interval_count: 1
     livemode: false
     metadata: {}
-    nickname:
+    nickname: null
     object: plan
-    product: prod_LpiX0z67VPC23H
-    tiers_mode:
-    transform_usage:
-    trial_period_days:
+    product: prod_NC9An41hCnC9tt
+    tiers_mode: null
+    transform_usage: null
+    trial_period_days: null
     usage_type: licensed
   price:
     active: true
     billing_scheme: per_unit
     created: 1234567890
     currency: usd
-    id: price_1L836KDMHkD87qtyef9nyTYY
+    custom_unit_amount: null
+    id: price_1MRksaHNa9lRIoplH4A6Mm7D
     livemode: false
-    lookup_key:
+    lookup_key: null
     metadata: {}
-    nickname:
+    nickname: null
     object: price
-    product: prod_LpiX0z67VPC23H
+    product: prod_NC9An41hCnC9tt
     recurring:
-      aggregate_usage:
+      aggregate_usage: null
       interval: month
       interval_count: 1
       usage_type: licensed
     tax_behavior: unspecified
-    tiers_mode:
-    transform_quantity:
+    tiers_mode: null
+    transform_quantity: null
     type: recurring
     unit_amount: 2000
     unit_amount_decimal: '2000'
   product:
     active: true
     created: 1234567890
-    default_price: price_1L836JDMHkD87qtyYmUnPB9Q
+    default_price: price_1MRksZHNa9lRIoplctVc9TJx
     description: Comfortable gray cotton t-shirt
-    id: prod_LpiX0z67VPC23H
+    id: prod_NC9An41hCnC9tt
     images: []
     livemode: false
     metadata: {}
     name: T-shirt
     object: product
-    package_dimensions:
-    shippable:
-    statement_descriptor:
-    tax_code:
-    unit_label:
+    package_dimensions: null
+    shippable: null
+    statement_descriptor: null
+    tax_code: null
+    unit_label: null
     updated: 1234567890
-    url:
+    url: null
   promotion_code:
     active: false
     code: FALL20
     coupon:
-      amount_off:
-      created: 1654615987
+      amount_off: null
+      created: 1674589199
       currency: usd
       duration: repeating
       duration_in_months: 3
       id: Z4OV52SU
       livemode: false
-      max_redemptions:
+      max_redemptions: null
       metadata: {}
       name: 25.5% off
       object: coupon
       percent_off: 25.5
-      redeem_by:
+      redeem_by: null
       times_redeemed: 0
       valid: true
     created: 1234567890
-    customer:
+    customer: null
     expires_at: 1234567890
-    id: promo_1L84P1DMHkD87qtyip631oPw
+    id: promo_1MTsLbHNa9lRIoplmonDUlRe
     livemode: false
-    max_redemptions:
+    max_redemptions: null
     metadata: {}
     object: promotion_code
     restrictions:
       first_time_transaction: false
-      minimum_amount:
-      minimum_amount_currency:
+      minimum_amount: null
+      minimum_amount_currency: null
     times_redeemed: 0
   quote:
     amount_subtotal: 0
     amount_total: 0
-    application:
-    application_fee_amount:
-    application_fee_percent:
+    application: null
+    application_fee_amount: null
+    application_fee_percent: null
     automatic_tax:
       enabled: false
-      status:
+      status: null
     collection_method: charge_automatically
     computed:
-      recurring:
+      recurring: null
       upfront:
         amount_subtotal: 0
         amount_total: 0
@@ -2111,58 +2174,59 @@ resources:
           amount_tax: 0
     created: 1234567890
     currency: usd
-    customer: cus_LpiXsBsUIAF1ME
+    customer: cus_NC9A0AfwYlYLKS
     default_tax_rates: []
-    description:
+    description: null
     discounts: []
     expires_at: 1234567890
-    footer:
-    from_quote:
-    header:
-    id: qt_1L84P2DMHkD87qtyPmCXaCUa
-    invoice:
+    footer: null
+    from_quote: null
+    header: null
+    id: qt_1MTsLbHNa9lRIoplzv24oVMB
+    invoice: null
     invoice_settings:
-      days_until_due:
+      days_until_due: null
     livemode: false
     metadata: {}
-    number:
+    number: null
     object: quote
-    on_behalf_of:
+    on_behalf_of: null
     status: draft
     status_transitions:
-      accepted_at:
-      canceled_at:
-      finalized_at:
-    subscription:
+      accepted_at: null
+      canceled_at: null
+      finalized_at: null
+    subscription: null
     subscription_data:
-      effective_date:
-      trial_period_days:
-    subscription_schedule:
-    test_clock:
+      description: null
+      effective_date: null
+      trial_period_days: null
+    subscription_schedule: null
+    test_clock: null
     total_details:
       amount_discount: 0
       amount_shipping: 0
       amount_tax: 0
-    transfer_data:
+    transfer_data: null
   radar.early_fraud_warning:
     actionable: true
     charge: ch_1234
     created: 1234567890
     fraud_type: misc
-    id: issfr_1L84P8DMHkD87qtymW4TcXMT
+    id: issfr_1MTsLhHNa9lRIopl5yATddal
     livemode: false
     object: radar.early_fraud_warning
   radar.value_list:
     alias: custom_ip_blocklist
     created: 1234567890
     created_by: jenny@example.com
-    id: rsl_1L84P8DMHkD87qtydvZ5tN7Z
+    id: rsl_1MTsLhHNa9lRIoplfFlc7cGa
     item_type: ip_address
     list_items:
       data: []
       has_more: false
       object: list
-      url: "/v1/radar/value_list_items?value_list=rsl_1L84P8DMHkD87qtydvZ5tN7Z"
+      url: /v1/radar/value_list_items?value_list=rsl_1MTsLhHNa9lRIoplfFlc7cGa
     livemode: false
     metadata: {}
     name: Custom IP Blocklist
@@ -2170,48 +2234,30 @@ resources:
   radar.value_list_item:
     created: 1234567890
     created_by: jenny@example.com
-    id: rsli_1L84P8DMHkD87qtyv4CqFUic
+    id: rsli_1MTsLhHNa9lRIoplwixbGVzi
     livemode: false
     object: radar.value_list_item
     value: 1.2.3.4
-    value_list: rsl_1L84P8DMHkD87qtyD9G4i279
-  recipient:
-    active_account:
-    cards:
-      data: []
-      has_more: false
-      object: list
-      url: "/v1/recipients/rp_1L84P4DMHkD87qty0A68zftE/cards"
-    created: 1234567890
-    default_card:
-    description: Recipient for John Doe
-    email: test@example.com
-    id: rp_1L84P4DMHkD87qty0A68zftE
-    livemode: false
-    metadata: {}
-    migrated_to:
-    name: John Doe
-    object: recipient
-    type: individual
+    value_list: rsl_1MTsLhHNa9lRIopluCGkhIRN
   refund:
     amount: 100
-    balance_transaction:
-    charge: ch_1L836HDMHkD87qtyw7ukcec1
+    balance_transaction: null
+    charge: ch_1MRksWHNa9lRIopln3GRJ32j
     created: 1234567890
     currency: usd
-    id: re_1L84P0DMHkD87qtyFGO1oQxz
+    id: re_1MTsLUHNa9lRIoplLj6ZD4Mi
     metadata: {}
     object: refund
-    payment_intent:
-    reason:
-    receipt_number:
-    source_transfer_reversal:
+    payment_intent: null
+    reason: null
+    receipt_number: null
+    source_transfer_reversal: null
     status: succeeded
-    transfer_reversal:
+    transfer_reversal: null
   reporting.report_run:
     created: 1234567890
-    error:
-    id: frr_1L84P8DMHkD87qty1EvfpUIa
+    error: null
+    id: frr_1MTsLhHNa9lRIoplHFVOGeuE
     livemode: true
     object: reporting.report_run
     parameters:
@@ -2219,31 +2265,32 @@ resources:
       interval_start: 1522540800
     report_type: balance.summary.1
     result:
-      created: 1654610993
-      expires_at: 1686146993
-      filename: file_1L836TDMHkD87qtyEp7Nmhh7
-      id: file_1L836TDMHkD87qtyEp7Nmhh7
+      created: 1674083849
+      expires_at: 1705619849
+      filename: file_1MRksnHNa9lRIopluFBKwKOh
+      id: file_1MRksnHNa9lRIopluFBKwKOh
       links:
         data: []
         has_more: false
         object: list
-        url: "/v1/file_links?file=file_1L836TDMHkD87qtyEp7Nmhh7"
+        url: /v1/file_links?file=file_1MRksnHNa9lRIopluFBKwKOh
       object: file
       purpose: finance_report_run
       size: 16890
-      title:
+      title: null
       type: csv
-      url: https://om-upload-mydev.dev.stripe.me/v1/files/file_1L836TDMHkD87qtyEp7Nmhh7/contents
+      url: >-
+        https://crystal-upload-mydev.dev.stripe.me/v1/files/file_1MRksnHNa9lRIopluFBKwKOh/contents
     status: succeeded
     succeeded_at: 1234567890
   reporting.report_type:
     data_available_end: 1234567890
     data_available_start: 1234567890
     default_columns:
-    - category
-    - currency
-    - description
-    - net_amount
+      - category
+      - currency
+      - description
+      - net_amount
     id: balance.summary.1
     livemode: true
     name: Balance summary
@@ -2251,39 +2298,40 @@ resources:
     updated: 1234567890
     version: 1
   review:
-    billing_zip:
-    charge: ch_1L836HDMHkD87qtyw7ukcec1
-    closed_reason:
+    billing_zip: null
+    charge: ch_1MRksWHNa9lRIopln3GRJ32j
+    closed_reason: null
     created: 1234567890
-    id: prv_1L84P8DMHkD87qty4yQZgZ5Q
-    ip_address:
-    ip_address_location:
+    id: prv_1MTsLhHNa9lRIoplxxCwaLdf
+    ip_address: null
+    ip_address_location: null
     livemode: false
     object: review
     open: true
     opened_reason: rule
     reason: rule
-    session:
+    session: null
   scheduled_query_run:
     created: 1234567890
     data_load_time: 1234567890
     file:
-      created: 1654610993
-      expires_at:
+      created: 1674083849
+      expires_at: null
       filename: path
-      id: file_1L836TDMHkD87qtyT63jgum3
+      id: file_1MRksnHNa9lRIoplB1b6hLcc
       links:
         data: []
         has_more: false
         object: list
-        url: "/v1/file_links?file=file_1L836TDMHkD87qtyT63jgum3"
+        url: /v1/file_links?file=file_1MRksnHNa9lRIoplB1b6hLcc
       object: file
       purpose: sigma_scheduled_query
       size: 500
-      title:
+      title: null
       type: csv
-      url: https://om-upload-mydev.dev.stripe.me/v1/files/file_1L836TDMHkD87qtyT63jgum3/contents
-    id: sqr_1L84P8DMHkD87qtyoWCfQvyv
+      url: >-
+        https://crystal-upload-mydev.dev.stripe.me/v1/files/file_1MRksnHNa9lRIoplB1b6hLcc/contents
+    id: sqr_1MTsLhHNa9lRIopl3J7NdDsH
     livemode: false
     object: scheduled_query_run
     result_available_until: 1234567890
@@ -2291,81 +2339,62 @@ resources:
     status: completed
     title: Count all charges
   setup_attempt:
-    application:
+    application: null
     created: 1234567890
-    customer:
+    customer: null
+    flow_directions: null
     id: setatt_123456789012345678901234
     livemode: false
     object: setup_attempt
-    on_behalf_of:
-    payment_method: card_1L836GDMHkD87qtycwE78x6n
+    on_behalf_of: null
+    payment_method: card_1MRksVHNa9lRIoplQwDCCWle
     payment_method_details:
       card:
-        three_d_secure:
+        three_d_secure: null
       type: card
-    setup_error:
-    setup_intent: seti_1L836QDMHkD87qty9fapjtOa
+    setup_error: null
+    setup_intent: seti_1MRksmHNa9lRIopln7Zc5VZe
     status: succeeded
     usage: off_session
   setup_intent:
-    application:
-    cancellation_reason:
-    client_secret: seti_1L836QDMHkD87qty9fapjtOa_secret_LpiXFPhkHgDO6opbJnjOlivqWhuy4zO
+    application: null
+    cancellation_reason: null
+    client_secret: seti_1MRksmHNa9lRIopln7Zc5VZe_secret_NC9ByZyvVDWd0tokr8v8HzTnSoVtlWi
     created: 1234567890
-    customer:
-    description:
-    flow_directions:
-    id: seti_1L836QDMHkD87qty9fapjtOa
-    last_setup_error:
-    latest_attempt:
+    customer: null
+    description: null
+    flow_directions: null
+    id: seti_1MRksmHNa9lRIopln7Zc5VZe
+    last_setup_error: null
+    latest_attempt: null
     livemode: false
-    mandate:
+    mandate: null
     metadata: {}
-    next_action:
+    next_action: null
     object: setup_intent
-    on_behalf_of:
-    payment_method:
+    on_behalf_of: null
+    payment_method: null
     payment_method_options: {}
     payment_method_types:
-    - card
-    single_use_mandate:
+      - card
+    single_use_mandate: null
     status: requires_payment_method
     usage: off_session
   shipping_rate:
     active: true
     created: 1234567890
-    delivery_estimate:
+    delivery_estimate: null
     display_name: Ground shipping
     fixed_amount:
       amount: 500
       currency: usd
-    id: shr_1L84P8DMHkD87qtyw5Rw3Rku
+    id: shr_1MTsLgHNa9lRIoplkMCLKXVh
     livemode: false
     metadata: {}
     object: shipping_rate
     tax_behavior: unspecified
-    tax_code:
+    tax_code: null
     type: fixed_amount
-  sku:
-    active: true
-    attributes:
-      gender: Unisex
-      size: Medium
-    created: 1234567890
-    currency: usd
-    id: sku_Lpjs1FuOlgKNOl
-    image:
-    inventory:
-      quantity: 50
-      type: finite
-      value:
-    livemode: false
-    metadata: {}
-    object: sku
-    package_dimensions:
-    price: 1500
-    product: prod_Lpjs1enYeE9er9
-    updated: 1234567890
   source:
     ach_credit_transfer:
       account_number: test_52796e3294dc
@@ -2373,24 +2402,24 @@ resources:
       fingerprint: ecpwEzmBOSMOqQTL
       routing_number: '110000000'
       swift_code: TSTEZ122
-    amount:
-    client_secret: src_client_secret_1WQoGyDLLlahsNoT5lJ8QEf6
+    amount: null
+    client_secret: src_client_secret_6FkEsE7hyA6zCUFvE9OyfO95
     created: 1234567890
     currency: usd
     flow: receiver
-    id: src_1L84P2DMHkD87qtyFleIHu2T
+    id: src_1MTsLbHNa9lRIoplb5lEU6VP
     livemode: false
     metadata: {}
     object: source
     owner:
-      address:
+      address: null
       email: jenny.rosen@example.com
-      name:
-      phone:
-      verified_address:
-      verified_email:
-      verified_name:
-      verified_phone:
+      name: null
+      phone: null
+      verified_address: null
+      verified_email: null
+      verified_name: null
+      verified_phone: null
     receiver:
       address: 121042882-38381234567890123
       amount_charged: 0
@@ -2398,14 +2427,14 @@ resources:
       amount_returned: 0
       refund_attributes_method: email
       refund_attributes_status: missing
-    statement_descriptor:
+    statement_descriptor: null
     status: pending
     type: ach_credit_transfer
     usage: reusable
   source_mandate_notification:
     amount: 2000
     created: 1234567890
-    id: srcmn_1L84P7DMHkD87qtylBemx4Cd
+    id: srcmn_1MTsLgHNa9lRIoplo0KW2rLG
     livemode: false
     object: source_mandate_notification
     reason: debit_initiated
@@ -2420,24 +2449,24 @@ resources:
         fingerprint: ecpwEzmBOSMOqQTL
         routing_number: '110000000'
         swift_code: TSTEZ122
-      amount:
-      client_secret: src_client_secret_EAdb9PyagwI2rPS3hmabuimr
-      created: 1654615993
+      amount: null
+      client_secret: src_client_secret_qUzQN4lvsAg3uir5BtRWHxEb
+      created: 1674589204
       currency: usd
       flow: receiver
-      id: src_1L84P7DMHkD87qtyCjKxv5Ss
+      id: src_1MTsLgHNa9lRIoplefvwvFmf
       livemode: false
       metadata: {}
       object: source
       owner:
-        address:
+        address: null
         email: jenny.rosen@example.com
-        name:
-        phone:
-        verified_address:
-        verified_email:
-        verified_name:
-        verified_phone:
+        name: null
+        phone: null
+        verified_address: null
+        verified_email: null
+        verified_name: null
+        verified_phone: null
       receiver:
         address: 121042882-38381234567890123
         amount_charged: 0
@@ -2445,7 +2474,7 @@ resources:
         amount_returned: 0
         refund_attributes_method: email
         refund_attributes_status: missing
-      statement_descriptor:
+      statement_descriptor: null
       status: pending
       type: ach_credit_transfer
       usage: reusable
@@ -2456,237 +2485,248 @@ resources:
     amount: 500
     created: 1234567890
     currency: usd
-    id: srctxn_1L84P7DMHkD87qtyZX62FJqJ
+    id: srctxn_1MTsLgHNa9lRIoplizR1DMFu
     livemode: false
     object: source_transaction
-    source: src_1L84P2DMHkD87qtyFleIHu2T
+    source: src_1MTsLbHNa9lRIoplb5lEU6VP
     status: succeeded
     type: ach_credit_transfer
   subscription:
-    application:
-    application_fee_percent:
+    application: null
+    application_fee_percent: null
     automatic_tax:
       enabled: false
     billing_cycle_anchor: 1234567890
-    billing_thresholds:
+    billing_thresholds: null
     cancel_at: 1234567890
     cancel_at_period_end: false
     canceled_at: 1234567890
     collection_method: charge_automatically
     created: 1234567890
+    currency: usd
     current_period_end: 1234567890
     current_period_start: 1234567890
-    customer: cus_LpiXsBsUIAF1ME
-    days_until_due:
-    default_payment_method:
-    default_source:
+    customer: cus_NC9A0AfwYlYLKS
+    days_until_due: null
+    default_payment_method: null
+    default_source: null
     default_tax_rates: []
-    description:
-    discount:
+    description: null
+    discount: null
     ended_at: 1234567890
-    id: sub_1L84P0DMHkD87qtylFJZKjQ4
+    id: sub_1MTsLTHNa9lRIopleJk6NBYy
     items:
       data:
-      - billing_thresholds:
-        created: 1654615986
-        id: si_LpjsYGH0wJvniM
-        metadata: {}
-        object: subscription_item
-        price:
-          active: true
-          billing_scheme: per_unit
-          created: 1654610984
-          currency: usd
-          id: price_1L836KDMHkD87qtyef9nyTYY
-          livemode: false
-          lookup_key:
+        - billing_thresholds: null
+          created: 1674589192
+          id: si_NEL122YGlrarIl
           metadata: {}
-          nickname:
-          object: price
-          product: prod_LpiX0z67VPC23H
-          recurring:
-            aggregate_usage:
-            interval: month
-            interval_count: 1
-            usage_type: licensed
-          tax_behavior: unspecified
-          tiers_mode:
-          transform_quantity:
-          type: recurring
-          unit_amount: 2000
-          unit_amount_decimal: '2000'
-        quantity: 1
-        subscription: sub_1L84P0DMHkD87qtylFJZKjQ4
-        tax_rates: []
+          object: subscription_item
+          price:
+            active: true
+            billing_scheme: per_unit
+            created: 1674083836
+            currency: usd
+            custom_unit_amount: null
+            id: price_1MRksaHNa9lRIoplH4A6Mm7D
+            livemode: false
+            lookup_key: null
+            metadata: {}
+            nickname: null
+            object: price
+            product: prod_NC9An41hCnC9tt
+            recurring:
+              aggregate_usage: null
+              interval: month
+              interval_count: 1
+              usage_type: licensed
+            tax_behavior: unspecified
+            tiers_mode: null
+            transform_quantity: null
+            type: recurring
+            unit_amount: 2000
+            unit_amount_decimal: '2000'
+          quantity: 1
+          subscription: sub_1MTsLTHNa9lRIopleJk6NBYy
+          tax_rates: []
       has_more: false
       object: list
-      url: "/v1/subscription_items?subscription=sub_1L84P0DMHkD87qtylFJZKjQ4"
-    latest_invoice:
+      url: /v1/subscription_items?subscription=sub_1MTsLTHNa9lRIopleJk6NBYy
+    latest_invoice: null
     livemode: false
     metadata: {}
     next_pending_invoice_item_invoice: 1234567890
     object: subscription
-    pause_collection:
+    on_behalf_of: null
+    pause_collection: null
     payment_settings:
-      payment_method_options:
-      payment_method_types:
-      save_default_payment_method:
-    pending_invoice_item_interval:
-    pending_setup_intent:
-    pending_update:
-    schedule:
+      payment_method_options: null
+      payment_method_types: null
+      save_default_payment_method: null
+    pending_invoice_item_interval: null
+    pending_setup_intent: null
+    pending_update: null
+    schedule: null
     start_date: 1234567890
     status: active
-    test_clock:
-    transfer_data:
+    test_clock: null
+    transfer_data: null
     trial_end: 1234567890
     trial_start: 1234567890
   subscription_item:
-    billing_thresholds:
-    created: 1654615988
-    id: si_Lpjsx7J1icWdKC
+    billing_thresholds: null
+    created: 1674589197
+    id: si_NEL1tuUtZUHKVm
     metadata: {}
     object: subscription_item
     price:
       active: true
       billing_scheme: per_unit
-      created: 1654610984
+      created: 1674083836
       currency: usd
-      id: price_1L836KDMHkD87qtyef9nyTYY
+      custom_unit_amount: null
+      id: price_1MRksaHNa9lRIoplH4A6Mm7D
       livemode: false
-      lookup_key:
+      lookup_key: null
       metadata: {}
-      nickname:
+      nickname: null
       object: price
-      product: prod_LpiX0z67VPC23H
+      product: prod_NC9An41hCnC9tt
       recurring:
-        aggregate_usage:
+        aggregate_usage: null
         interval: month
         interval_count: 1
         usage_type: licensed
       tax_behavior: unspecified
-      tiers_mode:
-      transform_quantity:
+      tiers_mode: null
+      transform_quantity: null
       type: recurring
       unit_amount: 2000
       unit_amount_decimal: '2000'
     quantity: 1
-    subscription: sub_1L84P1DMHkD87qtyuIHFbtg4
+    subscription: sub_1MTsLZHNa9lRIoplIZCObeH5
     tax_rates: []
   subscription_schedule:
-    application:
+    application: null
     canceled_at: 1234567890
     completed_at: 1234567890
     created: 1234567890
-    current_phase:
-    customer: cus_LpiXsBsUIAF1ME
+    current_phase: null
+    customer: cus_NC9A0AfwYlYLKS
     default_settings:
-      application_fee_percent:
+      application_fee_percent: null
       automatic_tax:
         enabled: false
       billing_cycle_anchor: automatic
-      billing_thresholds:
+      billing_thresholds: null
       collection_method: charge_automatically
-      default_payment_method:
-      invoice_settings:
-      transfer_data:
+      default_payment_method: null
+      description: null
+      invoice_settings: null
+      on_behalf_of: null
+      transfer_data: null
     end_behavior: release
-    id: sub_sched_1L84P1DMHkD87qtyHiELNgzJ
+    id: sub_sched_1MTsLZHNa9lRIopl7Z3UECSP
     livemode: false
     metadata: {}
     object: subscription_schedule
     phases:
-    - add_invoice_items: []
-      application_fee_percent:
-      billing_cycle_anchor:
-      billing_thresholds:
-      collection_method:
-      coupon:
-      default_payment_method:
-      default_tax_rates: []
-      end_date: 1686670387
-      invoice_settings:
-      items:
-      - billing_thresholds:
-        price: price_1L836KDMHkD87qtyef9nyTYY
-        quantity: 1
-        tax_rates: []
-      metadata: {}
-      proration_behavior: create_prorations
-      start_date: 1655220787
-      transfer_data:
-      trial_end:
+      - add_invoice_items: []
+        application_fee_percent: null
+        billing_cycle_anchor: null
+        billing_thresholds: null
+        collection_method: null
+        coupon: null
+        currency: usd
+        default_payment_method: null
+        default_tax_rates: []
+        description: null
+        end_date: 1706643597
+        invoice_settings: null
+        items:
+          - billing_thresholds: null
+            metadata: {}
+            price: price_1MRksaHNa9lRIoplH4A6Mm7D
+            quantity: 1
+            tax_rates: []
+        metadata: {}
+        on_behalf_of: null
+        proration_behavior: create_prorations
+        start_date: 1675193997
+        transfer_data: null
+        trial_end: null
     released_at: 1234567890
-    released_subscription:
+    released_subscription: null
     status: not_started
-    subscription:
-    test_clock:
+    subscription: null
+    test_clock: null
   tax_code:
-    description: Any tangible or physical good. For jurisdictions that impose a tax,
-      the standard rate is applied.
+    description: >-
+      Any tangible or physical good. For jurisdictions that impose a tax, the
+      standard rate is applied.
     id: txcd_99999999
     name: General - Tangible Goods
     object: tax_code
   tax_id:
     country: DE
     created: 1234567890
-    customer: cus_LpiXsBsUIAF1ME
-    id: txi_1L84P8DMHkD87qtyAEjHp3bk
+    customer: cus_NC9A0AfwYlYLKS
+    id: txi_1MTsLiHNa9lRIoplGWNmAM9A
     livemode: false
     object: tax_id
     type: eu_vat
     value: DE123456789
     verification:
       status: pending
-      verified_address:
-      verified_name:
+      verified_address: null
+      verified_name: null
   tax_rate:
     active: true
     country: DE
     created: 1234567890
     description: VAT Germany
     display_name: VAT
-    id: txr_1L84P1DMHkD87qtyqVanzwzR
+    id: txr_1MTsLZHNa9lRIoplCzqIHPga
     inclusive: false
     jurisdiction: DE
     livemode: false
     metadata: {}
     object: tax_rate
-    percentage: 19.0
-    state:
+    percentage: 19
+    state: null
     tax_type: vat
   terminal.configuration:
     bbpos_wisepos_e:
-      splashscreen: file_1L84P8DMHkD87qtyygeCVJdg
+      splashscreen: file_1MTsLhHNa9lRIoplR1VOOhlK
     id: tmc_ElVUAjF8xXG3hj
     is_account_default: false
     livemode: false
     object: terminal.configuration
   terminal.connection_token:
     object: terminal.connection_token
-    secret: pst_test_Lpk1j8Gd2V9hCy6YzCwRxlT
+    secret: pst_test_7YkdTe4McKIJZwaE1zvRU4N
   terminal.location:
     address:
       city: San Francisco
       country: US
       line1: 1234 Fake Street
-      line2:
+      line2: null
       postal_code: '94102'
       state: CA
     display_name: My First Store
-    id: tml_95ctwuVxCTKzSURQoa2vsVS9
+    id: tml_zTVss7vWGaM6O8G1ujSRMpcm
     livemode: false
     metadata: {}
     object: terminal.location
   terminal.reader:
-    action:
-    device_sw_version:
+    action: null
+    device_sw_version: null
     device_type: bbpos_wisepos_e
-    id: tmr_arJS1ZvK8TldUPxRwRM8cMRZ
+    id: tmr_igA8ZBzdDwJQsQk5dTbznML6
     ip_address: 192.168.2.2
     label: Blue Rabbit
     livemode: false
-    location:
+    location: null
     metadata: {}
     object: terminal.reader
     serial_number: 123-456-789
@@ -2695,86 +2735,52 @@ resources:
     created: 1234567890
     deletes_after: 1234567890
     frozen_time: 1234567890
-    id: clock_1L84P2DMHkD87qtyREqHiHmP
+    id: clock_1MTsLbHNa9lRIopluGDouTPT
     livemode: false
-    name:
+    name: null
     object: test_helpers.test_clock
     status: ready
-  three_d_secure:
-    amount: 1500
-    authenticated: false
-    card:
-      address_city:
-      address_country:
-      address_line1:
-      address_line1_check:
-      address_line2:
-      address_state:
-      address_zip:
-      address_zip_check:
-      brand: Visa
-      country: US
-      customer:
-      cvc_check: pass
-      dynamic_last4:
-      exp_month: 8
-      exp_year: 2023
-      fingerprint: SdiMX8qq4Fl2Qa5Y
-      funding: credit
-      id: card_1L836GDMHkD87qtycwE78x6n
-      last4: '4242'
-      metadata: {}
-      name: Jenny Rosen
-      object: card
-      tokenization_method:
-    created: 1234567890
-    currency: usd
-    id: tdsrc_1L84P7DMHkD87qtyuC0mrsuF
-    livemode: false
-    object: three_d_secure
-    redirect_url: https://om-threedsecureoneweb-mydev.dev.stripe.me/3d_secure/authenticate/acct_1L8366DMHkD87qty/tdsrc_1L84P7DMHkD87qtyuC0mrsuF
-    status: redirect_pending
   token:
     card:
-      address_city:
-      address_country:
-      address_line1:
-      address_line1_check:
-      address_line2:
-      address_state:
-      address_zip:
-      address_zip_check:
+      address_city: null
+      address_country: null
+      address_line1: null
+      address_line1_check: null
+      address_line2: null
+      address_state: null
+      address_zip: null
+      address_zip_check: null
       brand: Visa
       country: US
       cvc_check: pass
-      dynamic_last4:
+      dynamic_last4: null
       exp_month: 8
-      exp_year: 2023
-      fingerprint: SdiMX8qq4Fl2Qa5Y
+      exp_year: 2024
+      fingerprint: hvOCeciLxnZCBtAo
       funding: credit
-      id: card_1L84P1DMHkD87qtywRVOplGp
+      id: card_1MTsLZHNa9lRIoplm5LL2U2n
       last4: '4242'
       metadata: {}
-      name:
+      name: null
       object: card
-      tokenization_method:
-    client_ip:
+      tokenization_method: null
+    client_ip: null
     created: 1234567890
-    id: tok_1L84P1DMHkD87qty3Y8pFQZU
+    id: tok_1MTsLZHNa9lRIoplTrKRXmcZ
     livemode: false
     object: token
     type: card
     used: false
   topup:
     amount: 1000
-    balance_transaction:
+    balance_transaction: null
     created: 1234567890
     currency: usd
     description: Top-up description
     expected_availability_date: 123456789
-    failure_code:
-    failure_message:
-    id: tu_1L84P4DMHkD87qtyxOxRvhmf
+    failure_code: null
+    failure_message: null
+    id: tu_1MTsLdHNa9lRIoplvrpUHGKe
     livemode: false
     metadata:
       order_id: '12345678'
@@ -2787,41 +2793,41 @@ resources:
         last4: '6789'
         routing_number: '110000000'
         type: individual
-      amount:
-      client_secret: src_client_secret_BCoSy5umWAFCElcgMPpt9Ocg
-      created: 1654615990
+      amount: null
+      client_secret: src_client_secret_Maif6tck88uLUHQpTxdoPHRf
+      created: 1674589201
       currency: usd
       flow: code_verification
-      id: src_1L84P4DMHkD87qtyxbu1E534
+      id: src_1MTsLdHNa9lRIoplcw5nDYij
       livemode: false
       metadata: {}
       object: source
       owner:
-        address:
+        address: null
         email: jenny.rosen@example.com
         name: Jenny Rosen
-        phone:
-        verified_address:
-        verified_email:
-        verified_name:
-        verified_phone:
-      statement_descriptor:
+        phone: null
+        verified_address: null
+        verified_email: null
+        verified_name: null
+        verified_phone: null
+      statement_descriptor: null
       status: pending
       type: ach_debit
       usage: reusable
-    statement_descriptor:
+    statement_descriptor: null
     status: pending
-    transfer_group:
+    transfer_group: null
   transfer:
     amount: 1100
     amount_reversed: 0
-    balance_transaction: txn_1L84OxDMHkD87qty5jNZU471
+    balance_transaction: txn_1MTsLPHNa9lRIoplFr2pRajx
     created: 1234567890
     currency: usd
-    description:
-    destination: acct_1L8366DMHkD87qty
-    destination_payment: py_LpjsjBvDbmlPt5
-    id: tr_1L84P3DMHkD87qtymkuVBna1
+    description: null
+    destination: acct_1MRksEHNa9lRIopl
+    destination_payment: py_NEL1CthLmuhFjK
+    id: tr_1MTsLcHNa9lRIoplcJ2BnO4P
     livemode: false
     metadata: {}
     object: transfer
@@ -2829,58 +2835,62 @@ resources:
       data: []
       has_more: false
       object: list
-      url: "/v1/transfers/tr_1L84P3DMHkD87qtymkuVBna1/reversals"
+      url: /v1/transfers/tr_1MTsLcHNa9lRIoplcJ2BnO4P/reversals
     reversed: false
-    source_transaction:
+    source_transaction: null
     source_type: card
-    transfer_group:
+    transfer_group: null
   transfer_reversal:
     amount: 1100
-    balance_transaction:
+    balance_transaction: null
     created: 1234567890
     currency: usd
-    destination_payment_refund:
-    id: trr_1L84P3DMHkD87qty18xtd1Ye
+    destination_payment_refund: null
+    id: trr_1MTsLcHNa9lRIoplhvPRq90F
     metadata: {}
     object: transfer_reversal
-    source_refund:
-    transfer: tr_1L84P3DMHkD87qtymkuVBna1
+    source_refund: null
+    transfer: tr_1MTsLcHNa9lRIoplcJ2BnO4P
   treasury.credit_reversal:
     amount: 1000
+    created: 1234567890
     currency: usd
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    hosted_regulatory_receipt_url: https://om-agrippa-mydev.dev.stripe.me/regulatory-receipt/credrev_test_YWNjdF8xTDgzNjZETUhrRDg3cXR5LGNyZXZiX0xwanNtZG5Pdkl6WnpzRGdtb0tGN3NlbDZoRHRMcEw0000WMax6FUX
-    id: credrev_1L84PADMHkD87qtyhu5YZR1b
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgbep-mx6aA6Nv0lfHNYMz4LhDBeIb8oxc1UklAzZEP4RfVcAssSbJNk_wZ8N2naA3Kxnbtd7GC9s_FKPgSDiQ
+    id: credrev_1MTsLkHNa9lRIoplVutLYwOR
     livemode: false
     metadata: {}
     network: ach
     object: treasury.credit_reversal
-    received_credit: rc_1L84PADMHkD87qtyOZM4aIVb
+    received_credit: rc_1MTsLkHNa9lRIoplRAfWmpFG
     status: processing
     status_transitions:
-      posted_at:
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+      posted_at: null
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.debit_reversal:
     amount: 1000
+    created: 1234567890
     currency: usd
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    hosted_regulatory_receipt_url: https://om-agrippa-mydev.dev.stripe.me/regulatory-receipt/debrev_test_YWNjdF8xTDgzNjZETUhrRDg3cXR5LGRyZXZiX0xwanNna2F1T1k0VlM1VGRzRFUwOEYxbnZuWHgxY0000001udBlwVk
-    id: debrev_1L84PADMHkD87qtyt0OJezYN
-    linked_flows:
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgYtvprvmuQ6Nv13LYSBSjJJuxEUJ26qtamG96w5fbYZuoM2gTGo0YT3bZYCd4xkZRmLIzrNJdmLck3diIeYqQ
+    id: debrev_1MTsLkHNa9lRIopl1XbOLQ0s
+    linked_flows: null
     livemode: false
     metadata: {}
     network: ach
     object: treasury.debit_reversal
-    received_debit: rd_1L84PADMHkD87qtyXbFeP7vF
+    received_debit: rd_1MTsLkHNa9lRIopl8MnVeqUA
     status: processing
     status_transitions:
-      completed_at:
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+      completed_at: null
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.financial_account:
     active_features:
-    - financial_addresses.aba
-    - outbound_payments.ach
-    - outbound_payments.us_domestic_wire
+      - financial_addresses.aba
+      - outbound_payments.ach
+      - outbound_payments.us_domestic_wire
     balance:
       cash:
         usd: 0
@@ -2891,26 +2901,26 @@ resources:
     country: US
     created: 1234567890
     financial_addresses:
-    - aba:
-        account_holder_name: Jenny Rosen
-        account_number_last4: '7890'
-        bank_name: STRIPE TEST BANK
-        routing_number: '0000000001'
-      supported_networks:
-      - ach
-      - us_domestic_wire
-      type: aba
-    id: fa_1L84P6DMHkD87qtyaedvjyhj
+      - aba:
+          account_holder_name: Jenny Rosen
+          account_number_last4: '7890'
+          bank_name: STRIPE TEST BANK
+          routing_number: '0000000001'
+        supported_networks:
+          - ach
+          - us_domestic_wire
+        type: aba
+    id: fa_1MTsLfHNa9lRIoplXH2qgJiU
     livemode: true
-    metadata:
+    metadata: null
     object: treasury.financial_account
     pending_features: []
     restricted_features: []
     status: open
     status_details:
-      closed:
+      closed: null
     supported_currencies:
-    - usd
+      - usd
   treasury.financial_account_features:
     card_issuing:
       requested: true
@@ -2959,33 +2969,34 @@ resources:
     created: 1234567890
     currency: usd
     description: InboundTransfer from my external bank account
-    failure_details:
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    hosted_regulatory_receipt_url: https://om-agrippa-mydev.dev.stripe.me/regulatory-receipt/ibt_test_YWNjdF8xTDgzNjZETUhrRDg3cXR5LGlidHJiX0xwanN6NUV2aXlKRG5JSW9ienZ5V0xsWXlUUlhUQjk0000bMS9VaVr
-    id: ibt_1L84PADMHkD87qtyOQeZ7Z61
+    failure_details: null
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgYqj-7fVOk6Nv2MbY4MkVtv86ehv9NAHvgbpDXwRv4U0WLpa5S-ish0zzhEMCeq0XYibef62hpx2w72JIL9Lg
+    id: ibt_1MTsLkHNa9lRIoplSmfy3umM
     linked_flows:
-      received_debit:
+      received_debit: null
     livemode: false
     metadata: {}
     object: treasury.inbound_transfer
-    origin_payment_method: pm_1L84P9DMHkD87qty6CbS7aO4
+    origin_payment_method: pm_1MTsLjHNa9lRIoplz63SEOPH
     origin_payment_method_details:
       billing_details:
         address:
           city: San Francisco
           country: US
           line1: 1234 Fake Street
-          line2:
+          line2: null
           postal_code: '94102'
           state: CA
-        email:
+        email: null
         name: Jane Austen
       type: us_bank_account
       us_bank_account:
         account_holder_type: company
         account_type: checking
         bank_name: STRIPE TEST BANK
-        fingerprint: w8JhxtW3xVhCnsBG
+        fingerprint: 26Il57qoXkOvZN5m
         last4: '6789'
         network: ach
         routing_number: '110000000'
@@ -2993,100 +3004,104 @@ resources:
     statement_descriptor: transfer
     status: processing
     status_transitions:
-      failed_at:
-      succeeded_at:
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+      failed_at: null
+      succeeded_at: null
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.outbound_payment:
     amount: 10000
-    cancelable: true
+    cancelable: false
     created: 1234567890
     currency: usd
-    customer:
+    customer: null
     description: OutboundPayment to a 3rd party
-    destination_payment_method:
+    destination_payment_method: null
     destination_payment_method_details:
-      destination: ba_1L836UDMHkD87qtyD16KLW5v
+      destination: ba_1MRkspHNa9lRIopl0DXFmDzO
       type: us_bank_account
     end_user_details:
-      ip_address:
+      ip_address: null
       present: false
     expected_arrival_date: 1234567890
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    hosted_regulatory_receipt_url: https://om-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTDgzNjZETUhrRDg3cXR5KLzf_ZQGMgZa-jL-bkU6Nv0tR164b-pK9KvTfXEtGT_JCw-O_lhUxKgZ-YpnxyjHAY0bR8ZAvVrsqHWGXUFcaKHzfPjS0A
-    id: obp_1L84PADMHkD87qty2jObxyL7
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgbxlgJ_j_s6Nf0zlc0Jz9dh9Q_4T5VZUlPt_hhhEY8wcRQ5dVxQoXckrVMzQ16Jan-fToGGmgiS_GH_l6wy
+    id: obp_1MTsLkHNa9lRIoplVLDsCFJz
     livemode: false
     metadata: {}
     object: treasury.outbound_payment
-    returned_details:
+    returned_details: null
     statement_descriptor: payment
     status: processing
     status_transitions:
-      canceled_at:
-      failed_at:
-      posted_at:
-      returned_at:
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+      canceled_at: null
+      failed_at: null
+      posted_at: null
+      returned_at: null
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.outbound_transfer:
     amount: 10000
     cancelable: true
     created: 1234567890
     currency: usd
     description: OutboundTransfer to my external bank account
-    destination_payment_method: pm_1L84P9DMHkD87qty6CbS7aO4
+    destination_payment_method: pm_1MTsLjHNa9lRIoplz63SEOPH
     destination_payment_method_details:
       billing_details:
         address:
           city: San Francisco
           country: US
           line1: 1234 Fake Street
-          line2:
+          line2: null
           postal_code: '94102'
           state: CA
-        email:
+        email: null
         name: Jane Austen
       type: us_bank_account
       us_bank_account:
         account_holder_type: company
         account_type: checking
         bank_name: STRIPE TEST BANK
-        fingerprint: w8JhxtW3xVhCnsBG
+        fingerprint: 26Il57qoXkOvZN5m
         last4: '6789'
         network: ach
         routing_number: '110000000'
     expected_arrival_date: 1234567890
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    hosted_regulatory_receipt_url: https://om-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTDgzNjZETUhrRDg3cXR5KLzf_ZQGMgZNpU4REDU6Nv1ATtup21LqL1Ct3FwpOTEFN-1Qqkbf4X2oXxnj3o29E72igoyoyirKScoin0E8JnrU-4rluA
-    id: obt_1L84PADMHkD87qtykFn2Bpix
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgZW5a1giQI6Nv2-rJfexSfCyN7KIfsAP2Ei7EHnhPSS18awyYUhb3-jjtFkHy2y8ZIQRmvVWEyA24NVfrujmw
+    id: obt_1MTsLkHNa9lRIoplNz37SvMV
     livemode: false
     metadata: {}
     object: treasury.outbound_transfer
-    returned_details:
+    returned_details: null
     statement_descriptor: transfer
     status: processing
     status_transitions:
-      canceled_at:
-      failed_at:
-      posted_at:
-      returned_at:
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+      canceled_at: null
+      failed_at: null
+      posted_at: null
+      returned_at: null
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.received_credit:
     amount: 1234
     created: 1234567890
     currency: usd
     description: Stripe Test
-    failure_code:
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    id: rc_1L84PADMHkD87qtyOZM4aIVb
+    failure_code: null
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgZMw0MxXkY6Nv25QmMSxLKlLwRDVtgmZp_zL7yyttrH6dy2rLQdqfvOIQAavo1m0a5SdqHZO7nq4IrRGQ4HZg
+    id: rc_1MTsLkHNa9lRIoplRAfWmpFG
     initiating_payment_method_details:
       billing_details:
         address:
-          city:
-          country:
-          line1:
-          line2:
-          postal_code:
-          state:
-        email:
+          city: null
+          country: null
+          line1: null
+          line2: null
+          postal_code: null
+          state: null
+        email: null
         name: Jane Austen
       type: us_bank_account
       us_bank_account:
@@ -3094,34 +3109,39 @@ resources:
         last4: '6789'
         routing_number: '110000000'
     linked_flows:
-      credit_reversal:
-      issuing_authorization:
-      issuing_transaction:
-      source_flow:
-      source_flow_type:
+      credit_reversal: null
+      issuing_authorization: null
+      issuing_transaction: null
+      source_flow: null
+      source_flow_type: null
     livemode: false
     network: ach
     object: treasury.received_credit
+    reversal_details:
+      deadline: 1674691200
+      restricted_reason: null
     status: succeeded
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.received_debit:
     amount: 54321
     created: 1234567890
     currency: usd
     description: Stripe Test
-    failure_code:
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    id: rd_1L84PADMHkD87qtyhZjG3Kif
+    failure_code: null
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    hosted_regulatory_receipt_url: >-
+      https://crystal-agrippa-mydev.dev.stripe.me/regulatory-receipt/CBQaFwoVYWNjdF8xTVJrc0VITmE5bFJJb3BsKJjowJ4GMgZIVsJjpQU6Nv0twcJSuSn3Ug723gXUjoqWTxias7ULBGP9E3lviH_YSF-YvApuvxFvuwldMRqP1iJz0vtKAg
+    id: rd_1MTsLkHNa9lRIoplDONCIeZ3
     initiating_payment_method_details:
       billing_details:
         address:
-          city:
-          country:
-          line1:
-          line2:
-          postal_code:
-          state:
-        email:
+          city: null
+          country: null
+          line1: null
+          line2: null
+          postal_code: null
+          state: null
+        email: null
         name: Jane Austen
       type: us_bank_account
       us_bank_account:
@@ -3129,17 +3149,20 @@ resources:
         last4: '6789'
         routing_number: '110000000'
     linked_flows:
-      debit_reversal:
-      inbound_transfer:
-      issuing_authorization:
-      issuing_transaction:
+      debit_reversal: null
+      inbound_transfer: null
+      issuing_authorization: null
+      issuing_transaction: null
     livemode: false
     network: ach
     object: treasury.received_debit
+    reversal_details:
+      deadline: 1674691200
+      restricted_reason: null
     status: succeeded
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
   treasury.transaction:
-    amount: 100
+    amount: -100
     balance_impact:
       cash: -100
       inbound_pending: 0
@@ -3147,16 +3170,16 @@ resources:
     created: 1234567890
     currency: usd
     description: Jane Austen (6789) | Outbound transfer | transfer
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    flow: obt_1L84PADMHkD87qtykFn2Bpix
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    flow: obt_1MTsLkHNa9lRIoplNz37SvMV
     flow_type: outbound_transfer
-    id: trxn_1L84P6DMHkD87qtyjRw8hXnP
+    id: trxn_1MTsLfHNa9lRIopliNiOlegS
     livemode: false
     object: treasury.transaction
     status: open
     status_transitions:
-      posted_at:
-      void_at:
+      posted_at: null
+      void_at: null
   treasury.transaction_entry:
     balance_impact:
       cash: 0
@@ -3165,40 +3188,40 @@ resources:
     created: 1234567890
     currency: usd
     effective_at: 1234567890
-    financial_account: fa_1L84P6DMHkD87qtyaedvjyhj
-    flow: obt_1L84PADMHkD87qtykFn2Bpix
+    financial_account: fa_1MTsLfHNa9lRIoplXH2qgJiU
+    flow: obt_1MTsLkHNa9lRIoplNz37SvMV
     flow_type: outbound_transfer
-    id: trxne_1L84PADMHkD87qtyysBfl8Tx
+    id: trxne_1MTsLkHNa9lRIoplX6aJAAnn
     livemode: false
     object: treasury.transaction_entry
-    transaction: trxn_1L84P6DMHkD87qtyjRw8hXnP
+    transaction: trxn_1MTsLfHNa9lRIopliNiOlegS
     type: outbound_transfer
   usage_record:
-    id: mbur_1L84P1DMHkD87qtyvsjPAYgd
+    id: mbur_1MTsLbHNa9lRIoplEfjg9QAP
     livemode: false
     object: usage_record
     quantity: 100
-    subscription_item: si_Lpjs0JlgpC6x1W
+    subscription_item: si_NEL1LsEw3ZLE9s
     timestamp: 1234567890
   usage_record_summary:
-    id: sis_1L84P1DMHkD87qtyRe02qdwg
-    invoice: in_1L84P1DMHkD87qtyrxoca02T
+    id: sis_1MTsLaHNa9lRIoplCHG0P9g9
+    invoice: in_1MTsLZHNa9lRIoplU6ik3cn6
     livemode: false
     object: usage_record_summary
     period:
-      end: 1654615987
-      start: 1652023987
-    subscription_item: si_Lpjsw7uoQm9Jdr
+      end: 1674589198
+      start: 1671997198
+    subscription_item: si_NEL1u22sBjBv5w
     total_usage: 123
   webhook_endpoint:
-    api_version:
-    application:
+    api_version: null
+    application: null
     created: 1234567890
     description: This is my webhook, I like it a lot
     enabled_events:
-    - charge.failed
-    - charge.succeeded
-    id: we_1L84P5DMHkD87qtyQ8GVPdjV
+      - charge.failed
+      - charge.succeeded
+    id: we_1MTsLeHNa9lRIoplb4lp6iFZ
     livemode: false
     metadata: {}
     object: webhook_endpoint
