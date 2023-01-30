@@ -14871,11 +14871,17 @@ components:
           description: The date of birth of this cardholder.
           nullable: true
         first_name:
-          description: The first name of this cardholder.
+          description: >-
+            The first name of this cardholder. This field cannot contain any
+            numbers, special characters (except periods, commas, hyphens, spaces
+            and apostrophes) or non-latin letters.
           maxLength: 5000
           type: string
         last_name:
-          description: The last name of this cardholder.
+          description: >-
+            The last name of this cardholder. This field cannot contain any
+            numbers, special characters (except periods, commas, hyphens, spaces
+            and apostrophes) or non-latin letters.
           maxLength: 5000
           type: string
         verification:
