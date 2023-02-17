@@ -4272,6 +4272,7 @@ components:
       required:
         - automatic_tax
         - created
+        - custom_fields
         - custom_text
         - expires_at
         - id
@@ -19264,6 +19265,7 @@ components:
         - automatic_tax
         - billing_address_collection
         - currency
+        - custom_fields
         - custom_text
         - customer_creation
         - id
