@@ -13,9 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Extract tag message
-      env:
-        # e.g. v0.1.0a1, v1.2.0b2 or v2.3.0rc3, but not v1.0.0
-        PRERELEASE_TAG_PATTERN: "v[[:digit:]]+\\.[[:digit:]]+\\.[[:digit:]]+([ab]|rc)[[:digit:]]+"
       run: |
         git fetch --tags --force
         echo "$(git tag -l --format='%(contents:body)' ${{ github.ref_name }})" > "${{ runner.temp }}/release_notes.md"
