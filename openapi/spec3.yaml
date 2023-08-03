@@ -250,6 +250,8 @@ components:
           maxLength: 5000
           nullable: true
           type: string
+        monthly_estimated_revenue:
+          $ref: '#/components/schemas/account_monthly_estimated_revenue'
         name:
           description: The customer-facing business name.
           maxLength: 5000
@@ -291,6 +293,7 @@ components:
       title: AccountBusinessProfile
       type: object
       x-expandableFields:
+        - monthly_estimated_revenue
         - support_address
     account_capabilities:
       description: ''
@@ -1032,6 +1035,28 @@ components:
       type: object
       x-expandableFields: []
       x-resourceId: account_link
+    account_monthly_estimated_revenue:
+      description: ''
+      properties:
+        amount:
+          description: >-
+            A non-negative integer representing how much to charge in the
+            [smallest currency
+            unit](https://stripe.com/docs/currencies#zero-decimal).
+          type: integer
+        currency:
+          description: >-
+            Three-letter [ISO currency
+            code](https://www.iso.org/iso-4217-currency-codes.html), in
+            lowercase. Must be a [supported
+            currency](https://stripe.com/docs/currencies).
+          type: string
+      required:
+        - amount
+        - currency
+      title: AccountMonthlyEstimatedRevenue
+      type: object
+      x-expandableFields: []
     account_payments_settings:
       description: ''
       properties:
@@ -11212,6 +11237,11 @@ components:
           x-expansionResources:
             oneOf:
               - $ref: '#/components/schemas/subscription'
+        subscription_details:
+          anyOf:
+            - $ref: '#/components/schemas/subscription_details_data'
+          description: Details about the subscription that created this invoice.
+          nullable: true
         subscription_proration_date:
           description: >-
             Only set for upcoming invoices that preview prorations. The time
@@ -11344,6 +11374,7 @@ components:
         - shipping_details
         - status_transitions
         - subscription
+        - subscription_details
         - test_clock
         - threshold_reason
         - total_discount_amounts
@@ -19501,11 +19532,6 @@ components:
           enum:
             - manual
           type: string
-        persistent_token:
-          description: Token used for persistent Link logins.
-          maxLength: 5000
-          nullable: true
-          type: string
         setup_future_usage:
           description: >-
             Indicates that you intend to make future payments with this
@@ -19790,7 +19816,7 @@ components:
           type: integer
         application_fee_percent:
           description: >-
-            This represents the percentage of the subscription invoice subtotal
+            This represents the percentage of the subscription invoice total
             that will be transferred to the application owner's Stripe account.
           nullable: true
           type: number
@@ -23671,10 +23697,6 @@ components:
           maxLength: 5000
           nullable: true
           type: string
-        persistent_token:
-          description: Token used for persistent Link logins.
-          maxLength: 5000
-          type: string
       title: payment_method_link
       type: object
       x-expandableFields: []
@@ -26248,7 +26270,7 @@ components:
         onboarding](https://stripe.com/docs/connect/standard-accounts) or
         [Express onboarding
         documentation](https://stripe.com/docs/connect/express-accounts) for
-        information about platform pre-filling and account onboarding steps.
+        information about platform prefilling and account onboarding steps.
 
 
         Related guide: [Handling identity verification with the
@@ -27891,7 +27913,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the application owner's Stripe
+            total that will be transferred to the application owner's Stripe
             account. Only applicable if there are line items with recurring
             prices on the quote.
           nullable: true
@@ -28399,7 +28421,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the destination account. By
+            total that will be transferred to the destination account. By
             default, the entire amount will be transferred to the destination.
           nullable: true
           type: number
@@ -28589,8 +28611,9 @@ components:
         item_type:
           description: >-
             The type of items in the value list. One of `card_fingerprint`,
-            `card_bin`, `email`, `ip_address`, `country`, `string`,
-            `case_sensitive_string`, or `customer_id`.
+            `us_bank_account_fingerprint`, `sepa_debit_fingerprint`, `card_bin`,
+            `email`, `ip_address`, `country`, `string`, `case_sensitive_string`,
+            or `customer_id`.
           enum:
             - card_bin
             - card_fingerprint
@@ -28599,7 +28622,9 @@ components:
             - customer_id
             - email
             - ip_address
+            - sepa_debit_fingerprint
             - string
+            - us_bank_account_fingerprint
           type: string
         list_items:
           description: List of items contained within this value list.
@@ -30909,12 +30934,7 @@ components:
       x-expandableFields: []
     setup_intent_payment_method_options_link:
       description: ''
-      properties:
-        persistent_token:
-          description: Token used for persistent Link logins.
-          maxLength: 5000
-          nullable: true
-          type: string
+      properties: {}
       title: setup_intent_payment_method_options_link
       type: object
       x-expandableFields: []
@@ -32594,7 +32614,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the application owner's Stripe
+            total that will be transferred to the application owner's Stripe
             account.
           nullable: true
           type: number
@@ -33073,6 +33093,23 @@ components:
       title: SubscriptionBillingThresholds
       type: object
       x-expandableFields: []
+    subscription_details_data:
+      description: ''
+      properties:
+        metadata:
+          additionalProperties:
+            maxLength: 500
+            type: string
+          description: >-
+            Set of [key-value pairs](https://stripe.com/docs/api/metadata) that
+            will reflect the metadata of the subscription at the time of invoice
+            creation. *Note: This attribute is populated only for invoices
+            created on or after June 29, 2023.*
+          nullable: true
+          type: object
+      title: SubscriptionDetailsData
+      type: object
+      x-expandableFields: []
     subscription_item:
       description: >-
         Subscription items allow you to create customer subscriptions with more
@@ -33520,7 +33557,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the application owner's Stripe
+            total that will be transferred to the application owner's Stripe
             account during this phase of the schedule.
           nullable: true
           type: number
@@ -33704,7 +33741,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the application owner's Stripe
+            total that will be transferred to the application owner's Stripe
             account during this phase of the schedule.
           nullable: true
           type: number
@@ -33822,7 +33859,7 @@ components:
           description: >-
             A non-negative decimal between 0 and 100, with at most two decimal
             places. This represents the percentage of the subscription invoice
-            subtotal that will be transferred to the destination account. By
+            total that will be transferred to the destination account. By
             default, the entire amount is transferred to the destination.
           nullable: true
           type: number
@@ -39823,13 +39860,13 @@ paths:
 
 
         <p>If you’ve already collected information for your connected accounts,
-        you <a href="/docs/connect/best-practices#onboarding">can pre-fill that
+        you <a href="/docs/connect/best-practices#onboarding">can prefill that
         information</a> when
 
-        creating the account. Connect Onboarding won’t ask for the pre-filled
+        creating the account. Connect Onboarding won’t ask for the prefilled
         information during account onboarding.
 
-        You can pre-fill any information on the account.</p>
+        You can prefill any information on the account.</p>
       operationId: PostAccounts
       requestBody:
         content:
@@ -39941,6 +39978,17 @@ paths:
                     mcc:
                       maxLength: 4
                       type: string
+                    monthly_estimated_revenue:
+                      properties:
+                        amount:
+                          type: integer
+                        currency:
+                          type: string
+                      required:
+                        - amount
+                        - currency
+                      title: monthly_estimated_revenue_specs
+                      type: object
                     name:
                       maxLength: 5000
                       type: string
@@ -40762,8 +40810,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: settings_terms_of_service_specs
                           type: object
                       title: card_issuing_settings_specs
@@ -40862,8 +40914,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: settings_terms_of_service_specs
                           type: object
                       title: treasury_settings_specs
@@ -41086,6 +41142,17 @@ paths:
                     mcc:
                       maxLength: 4
                       type: string
+                    monthly_estimated_revenue:
+                      properties:
+                        amount:
+                          type: integer
+                        currency:
+                          type: string
+                      required:
+                        - amount
+                        - currency
+                      title: monthly_estimated_revenue_specs
+                      type: object
                     name:
                       maxLength: 5000
                       type: string
@@ -41892,8 +41959,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: settings_terms_of_service_specs
                           type: object
                       title: card_issuing_settings_specs
@@ -41992,8 +42063,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: settings_terms_of_service_specs
                           type: object
                       title: treasury_settings_specs
@@ -43445,8 +43520,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -43454,8 +43533,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -43463,8 +43546,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -43936,8 +44023,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -43945,8 +44036,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -43954,8 +44049,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44455,8 +44554,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44464,8 +44567,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44473,8 +44580,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44946,8 +45057,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44955,8 +45070,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -44964,8 +45083,12 @@ paths:
                       properties:
                         files:
                           items:
-                            maxLength: 500
-                            type: string
+                            anyOf:
+                              - maxLength: 500
+                                type: string
+                              - enum:
+                                  - ''
+                                type: string
                           type: array
                       title: documents_param
                       type: object
@@ -47013,8 +47136,12 @@ paths:
                   description: The business information shown to customers in the portal.
                   properties:
                     headline:
-                      maxLength: 60
-                      type: string
+                      anyOf:
+                        - maxLength: 60
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     privacy_policy_url:
                       type: string
                     terms_of_service_url:
@@ -47318,8 +47445,12 @@ paths:
                   description: The business information shown to customers in the portal.
                   properties:
                     headline:
-                      maxLength: 60
-                      type: string
+                      anyOf:
+                        - maxLength: 60
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     privacy_policy_url:
                       anyOf:
                         - type: string
@@ -57306,11 +57437,11 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. The request must be
-                    made by a platform account on a connected account in order
-                    to set an application fee percentage. For more information,
-                    see the application fees
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. The request must be made
+                    by a platform account on a connected account in order to set
+                    an application fee percentage. For more information, see the
+                    application fees
                     [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
                   type: number
                 automatic_tax:
@@ -58107,6 +58238,9 @@ paths:
               cancellation_details:
                 explode: true
                 style: deepObject
+              default_source:
+                explode: true
+                style: deepObject
               default_tax_rates:
                 explode: true
                 style: deepObject
@@ -58191,11 +58325,11 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. The request must be
-                    made by a platform account on a connected account in order
-                    to set an application fee percentage. For more information,
-                    see the application fees
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. The request must be made
+                    by a platform account on a connected account in order to set
+                    an application fee percentage. For more information, see the
+                    application fees
                     [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
                   type: number
                 automatic_tax:
@@ -58260,8 +58394,12 @@ paths:
                   description: Details about why this subscription was cancelled
                   properties:
                     comment:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     feedback:
                       enum:
                         - ''
@@ -58314,6 +58452,12 @@ paths:
                   maxLength: 5000
                   type: string
                 default_source:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     ID of the default payment source for the subscription. It
                     must belong to the customer associated with the subscription
@@ -58323,8 +58467,6 @@ paths:
                     [invoice_settings.default_payment_method](https://stripe.com/docs/api/customers/object#customer_object-invoice_settings-default_payment_method)
                     or
                     [default_source](https://stripe.com/docs/api/customers/object#customer_object-default_source).
-                  maxLength: 5000
-                  type: string
                 default_tax_rates:
                   anyOf:
                     - items:
@@ -63247,8 +63389,12 @@ paths:
                     generated when the invoice is finalized.
                   properties:
                     default_mandate:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     payment_method_options:
                       properties:
                         acss_debit:
@@ -63590,8 +63736,12 @@ paths:
                       maxLength: 5000
                       type: string
                     phone:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                   required:
                     - address
                     - name
@@ -63829,7 +63979,8 @@ paths:
           style: form
         - description: >-
             The identifier of the customer whose upcoming invoice you'd like to
-            retrieve.
+            retrieve. If `automatic_tax` is enabled then one of `customer`,
+            `customer_details`, `subscription`, or `schedule` must be set.
           in: query
           name: customer
           required: false
@@ -63839,7 +63990,9 @@ paths:
           style: form
         - description: >-
             Details about the customer you want to invoice or overrides for an
-            existing customer.
+            existing customer. If `automatic_tax` is enabled then one of
+            `customer`, `customer_details`, `subscription`, or `schedule` must
+            be set.
           explode: true
           in: query
           name: customer_details
@@ -64516,7 +64669,8 @@ paths:
           style: form
         - description: >-
             The identifier of the customer whose upcoming invoice you'd like to
-            retrieve.
+            retrieve. If `automatic_tax` is enabled then one of `customer`,
+            `customer_details`, `subscription`, or `schedule` must be set.
           in: query
           name: customer
           required: false
@@ -64526,7 +64680,9 @@ paths:
           style: form
         - description: >-
             Details about the customer you want to invoice or overrides for an
-            existing customer.
+            existing customer. If `automatic_tax` is enabled then one of
+            `customer`, `customer_details`, `subscription`, or `schedule` must
+            be set.
           explode: true
           in: query
           name: customer_details
@@ -65341,6 +65497,9 @@ paths:
               custom_fields:
                 explode: true
                 style: deepObject
+              default_source:
+                explode: true
+                style: deepObject
               default_tax_rates:
                 explode: true
                 style: deepObject
@@ -65463,14 +65622,18 @@ paths:
                   maxLength: 5000
                   type: string
                 default_source:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     ID of the default payment source for the invoice. It must
                     belong to the customer associated with the invoice and be in
                     a chargeable state. If not set, defaults to the
                     subscription's default source, if any, or to the customer's
                     default source.
-                  maxLength: 5000
-                  type: string
                 default_tax_rates:
                   anyOf:
                     - items:
@@ -65573,8 +65736,12 @@ paths:
                     generated when the invoice is finalized.
                   properties:
                     default_mandate:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     payment_method_options:
                       properties:
                         acss_debit:
@@ -65903,8 +66070,12 @@ paths:
                           maxLength: 5000
                           type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       required:
                         - address
                         - name
@@ -66198,6 +66369,9 @@ paths:
               expand:
                 explode: true
                 style: deepObject
+              mandate:
+                explode: true
+                style: deepObject
             schema:
               additionalProperties: false
               properties:
@@ -66225,13 +66399,17 @@ paths:
                     `false`.
                   type: boolean
                 mandate:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     ID of the mandate to be used for this invoice. It must
                     correspond to the payment method used to pay the invoice,
                     including the payment_method param or the invoice's
                     default_payment_method or default_source, if set.
-                  maxLength: 5000
-                  type: string
                 off_session:
                   description: >-
                     Indicates if a customer is on or off-session while an
@@ -67056,8 +67234,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: terms_acceptance_param
                           type: object
                       title: card_issuing_param
@@ -68290,8 +68472,12 @@ paths:
                             ip:
                               type: string
                             user_agent:
-                              maxLength: 5000
-                              type: string
+                              anyOf:
+                                - maxLength: 5000
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: terms_acceptance_param
                           type: object
                       title: card_issuing_param
@@ -71978,8 +72164,12 @@ paths:
                                     - ''
                                   type: string
                             cancellation_reason:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             expected_at:
                               anyOf:
                                 - format: unix-time
@@ -71988,11 +72178,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72045,8 +72243,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             original_transaction:
                               maxLength: 5000
                               type: string
@@ -72065,8 +72267,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: fraudulent
                           type: object
                         - enum:
@@ -72082,8 +72288,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             received_at:
                               anyOf:
                                 - format: unix-time
@@ -72092,8 +72302,12 @@ paths:
                                     - ''
                                   type: string
                             return_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             return_status:
                               enum:
                                 - ''
@@ -72129,11 +72343,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72155,11 +72377,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72199,11 +72429,19 @@ paths:
                                     - ''
                                   type: string
                             cancellation_reason:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             received_at:
                               anyOf:
                                 - format: unix-time
@@ -72376,8 +72614,12 @@ paths:
                                     - ''
                                   type: string
                             cancellation_reason:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             expected_at:
                               anyOf:
                                 - format: unix-time
@@ -72386,11 +72628,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72443,8 +72693,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             original_transaction:
                               maxLength: 5000
                               type: string
@@ -72463,8 +72717,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                           title: fraudulent
                           type: object
                         - enum:
@@ -72480,8 +72738,12 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             received_at:
                               anyOf:
                                 - format: unix-time
@@ -72490,8 +72752,12 @@ paths:
                                     - ''
                                   type: string
                             return_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             return_status:
                               enum:
                                 - ''
@@ -72527,11 +72793,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72553,11 +72827,19 @@ paths:
                                     - ''
                                   type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_description:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             product_type:
                               enum:
                                 - ''
@@ -72597,11 +72879,19 @@ paths:
                                     - ''
                                   type: string
                             cancellation_reason:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             explanation:
-                              maxLength: 1500
-                              type: string
+                              anyOf:
+                                - maxLength: 1500
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             received_at:
                               anyOf:
                                 - format: unix-time
@@ -74334,11 +74624,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -75215,8 +75513,12 @@ paths:
                       anyOf:
                         - properties:
                             confirmation_number:
-                              maxLength: 11
-                              type: string
+                              anyOf:
+                                - maxLength: 11
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             expires_after_days:
                               anyOf:
                                 - type: integer
@@ -75231,8 +75533,12 @@ paths:
                                     - ''
                                   type: string
                             product_description:
-                              maxLength: 22
-                              type: string
+                              anyOf:
+                                - maxLength: 22
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             setup_future_usage:
                               enum:
                                 - none
@@ -75249,9 +75555,6 @@ paths:
                               enum:
                                 - ''
                                 - manual
-                              type: string
-                            persistent_token:
-                              maxLength: 5000
                               type: string
                             setup_future_usage:
                               enum:
@@ -75536,7 +75839,7 @@ paths:
                     session:
                       maxLength: 5000
                       type: string
-                  title: radar_options
+                  title: radar_options_with_hidden_options
                   type: object
                 receipt_email:
                   description: >-
@@ -76126,11 +76429,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -77007,8 +77318,12 @@ paths:
                       anyOf:
                         - properties:
                             confirmation_number:
-                              maxLength: 11
-                              type: string
+                              anyOf:
+                                - maxLength: 11
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             expires_after_days:
                               anyOf:
                                 - type: integer
@@ -77023,8 +77338,12 @@ paths:
                                     - ''
                                   type: string
                             product_description:
-                              maxLength: 22
-                              type: string
+                              anyOf:
+                                - maxLength: 22
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             setup_future_usage:
                               enum:
                                 - none
@@ -77041,9 +77360,6 @@ paths:
                               enum:
                                 - ''
                                 - manual
-                              type: string
-                            persistent_token:
-                              maxLength: 5000
                               type: string
                             setup_future_usage:
                               enum:
@@ -78047,11 +78363,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -78928,8 +79252,12 @@ paths:
                       anyOf:
                         - properties:
                             confirmation_number:
-                              maxLength: 11
-                              type: string
+                              anyOf:
+                                - maxLength: 11
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             expires_after_days:
                               anyOf:
                                 - type: integer
@@ -78944,8 +79272,12 @@ paths:
                                     - ''
                                   type: string
                             product_description:
-                              maxLength: 22
-                              type: string
+                              anyOf:
+                                - maxLength: 22
+                                  type: string
+                                - enum:
+                                    - ''
+                                  type: string
                             setup_future_usage:
                               enum:
                                 - none
@@ -78962,9 +79294,6 @@ paths:
                               enum:
                                 - ''
                                 - manual
-                              type: string
-                            persistent_token:
-                              maxLength: 5000
                               type: string
                             setup_future_usage:
                               enum:
@@ -79249,7 +79578,7 @@ paths:
                     session:
                       maxLength: 5000
                       type: string
-                  title: radar_options
+                  title: radar_options_with_hidden_options
                   type: object
                 receipt_email:
                   anyOf:
@@ -79810,9 +80139,9 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. There must be at
-                    least 1 line item with a recurring price to use this field.
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. There must be at least 1
+                    line item with a recurring price to use this field.
                   type: number
                 automatic_tax:
                   description: Configuration for automatic tax collection.
@@ -81754,11 +82083,19 @@ paths:
                             - ''
                           type: string
                     name:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     phone:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                   title: billing_details_inner_params
                   type: object
                 blik:
@@ -82349,11 +82686,19 @@ paths:
                             - ''
                           type: string
                     name:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     phone:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                   title: billing_details_inner_params
                   type: object
                 card:
@@ -85125,6 +85470,9 @@ paths:
         content:
           application/x-www-form-urlencoded:
             encoding:
+              description:
+                explode: true
+                style: deepObject
               expand:
                 explode: true
                 style: deepObject
@@ -85138,6 +85486,9 @@ paths:
                 explode: true
                 style: deepObject
               tax_code:
+                explode: true
+                style: deepObject
+              unit_label:
                 explode: true
                 style: deepObject
               url:
@@ -85156,13 +85507,17 @@ paths:
                   maxLength: 5000
                   type: string
                 description:
+                  anyOf:
+                    - maxLength: 40000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     The product's description, meant to be displayable to the
                     customer. Use this field to optionally store a long form
                     explanation of the product being sold for your own rendering
                     purposes.
-                  maxLength: 40000
-                  type: string
                 expand:
                   description: Specifies which fields in the response should be expanded.
                   items:
@@ -85248,13 +85603,17 @@ paths:
                       type: string
                   description: 'A [tax code](https://stripe.com/docs/tax/tax-categories) ID.'
                 unit_label:
+                  anyOf:
+                    - maxLength: 12
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     A label that represents units of this product. When set,
                     this will be included in customers' receipts, invoices,
                     Checkout, and the customer portal. May only be set if
                     `type=service`.
-                  maxLength: 12
-                  type: string
                 url:
                   anyOf:
                     - type: string
@@ -85838,13 +86197,22 @@ paths:
               default_tax_rates:
                 explode: true
                 style: deepObject
+              description:
+                explode: true
+                style: deepObject
               discounts:
                 explode: true
                 style: deepObject
               expand:
                 explode: true
                 style: deepObject
+              footer:
+                explode: true
+                style: deepObject
               from_quote:
+                explode: true
+                style: deepObject
+              header:
                 explode: true
                 style: deepObject
               invoice_settings:
@@ -85888,9 +86256,9 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. There must be at
-                    least 1 line item with a recurring price to use this field.
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. There must be at least 1
+                    line item with a recurring price to use this field.
                 automatic_tax:
                   description: >-
                     Settings for automatic tax lookup for this quote and
@@ -85936,14 +86304,18 @@ paths:
                     The tax rates that will apply to any line item that does not
                     have `tax_rates` set.
                 description:
+                  anyOf:
+                    - maxLength: 500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     A description that will be displayed on the quote PDF. If no
                     value is passed, the default description configured in your
                     [quote template
                     settings](https://dashboard.stripe.com/settings/billing/quote)
                     will be used.
-                  maxLength: 500
-                  type: string
                 discounts:
                   anyOf:
                     - items:
@@ -85980,14 +86352,18 @@ paths:
                   format: unix-time
                   type: integer
                 footer:
+                  anyOf:
+                    - maxLength: 500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     A footer that will be displayed on the quote PDF. If no
                     value is passed, the default footer configured in your
                     [quote template
                     settings](https://dashboard.stripe.com/settings/billing/quote)
                     will be used.
-                  maxLength: 500
-                  type: string
                 from_quote:
                   description: >-
                     Clone an existing quote. The new quote will be created in
@@ -86004,14 +86380,18 @@ paths:
                   title: from_quote_params
                   type: object
                 header:
+                  anyOf:
+                    - maxLength: 50
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     A header that will be displayed on the quote PDF. If no
                     value is passed, the default header configured in your
                     [quote template
                     settings](https://dashboard.stripe.com/settings/billing/quote)
                     will be used.
-                  maxLength: 50
-                  type: string
                 invoice_settings:
                   description: All invoices will be billed using the specified settings.
                   properties:
@@ -86242,10 +86622,19 @@ paths:
               default_tax_rates:
                 explode: true
                 style: deepObject
+              description:
+                explode: true
+                style: deepObject
               discounts:
                 explode: true
                 style: deepObject
               expand:
+                explode: true
+                style: deepObject
+              footer:
+                explode: true
+                style: deepObject
+              header:
                 explode: true
                 style: deepObject
               invoice_settings:
@@ -86289,9 +86678,9 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. There must be at
-                    least 1 line item with a recurring price to use this field.
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. There must be at least 1
+                    line item with a recurring price to use this field.
                 automatic_tax:
                   description: >-
                     Settings for automatic tax lookup for this quote and
@@ -86337,9 +86726,13 @@ paths:
                     The tax rates that will apply to any line item that does not
                     have `tax_rates` set.
                 description:
+                  anyOf:
+                    - maxLength: 500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: A description that will be displayed on the quote PDF.
-                  maxLength: 500
-                  type: string
                 discounts:
                   anyOf:
                     - items:
@@ -86373,13 +86766,21 @@ paths:
                   format: unix-time
                   type: integer
                 footer:
+                  anyOf:
+                    - maxLength: 500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: A footer that will be displayed on the quote PDF.
-                  maxLength: 500
-                  type: string
                 header:
+                  anyOf:
+                    - maxLength: 50
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: A header that will be displayed on the quote PDF.
-                  maxLength: 50
-                  type: string
                 invoice_settings:
                   description: All invoices will be billed using the specified settings.
                   properties:
@@ -86482,8 +86883,12 @@ paths:
                     future, otherwise a subscription is created.
                   properties:
                     description:
-                      maxLength: 500
-                      type: string
+                      anyOf:
+                        - maxLength: 500
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     effective_date:
                       anyOf:
                         - enum:
@@ -87574,7 +87979,8 @@ paths:
                 item_type:
                   description: >-
                     Type of the items in the value list. One of
-                    `card_fingerprint`, `card_bin`, `email`, `ip_address`,
+                    `card_fingerprint`, `us_bank_account_fingerprint`,
+                    `sepa_debit_fingerprint`, `card_bin`, `email`, `ip_address`,
                     `country`, `string`, `case_sensitive_string`, or
                     `customer_id`. Use `string` if the item type is unknown or
                     mixed.
@@ -87586,7 +87992,9 @@ paths:
                     - customer_id
                     - email
                     - ip_address
+                    - sepa_debit_fingerprint
                     - string
+                    - us_bank_account_fingerprint
                   maxLength: 5000
                   type: string
                 metadata:
@@ -89966,11 +90374,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -90445,10 +90861,7 @@ paths:
                       title: setup_intent_param
                       type: object
                     link:
-                      properties:
-                        persistent_token:
-                          maxLength: 5000
-                          type: string
+                      properties: {}
                       title: setup_intent_payment_method_options_param
                       type: object
                     paypal:
@@ -90847,11 +91260,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -91326,10 +91747,7 @@ paths:
                       title: setup_intent_param
                       type: object
                     link:
-                      properties:
-                        persistent_token:
-                          maxLength: 5000
-                          type: string
+                      properties: {}
                       title: setup_intent_payment_method_options_param
                       type: object
                     paypal:
@@ -91712,11 +92130,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     blik:
@@ -92191,10 +92617,7 @@ paths:
                       title: setup_intent_param
                       type: object
                     link:
-                      properties:
-                        persistent_token:
-                          maxLength: 5000
-                          type: string
+                      properties: {}
                       title: setup_intent_payment_method_options_param
                       type: object
                     paypal:
@@ -95065,8 +95488,12 @@ paths:
                       maxLength: 5000
                       type: string
                     description:
-                      maxLength: 500
-                      type: string
+                      anyOf:
+                        - maxLength: 500
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     invoice_settings:
                       properties:
                         days_until_due:
@@ -95245,8 +95672,12 @@ paths:
                               - ''
                             type: string
                       description:
-                        maxLength: 500
-                        type: string
+                        anyOf:
+                          - maxLength: 500
+                            type: string
+                          - enum:
+                              - ''
+                            type: string
                       end_date:
                         format: unix-time
                         type: integer
@@ -95512,8 +95943,12 @@ paths:
                       maxLength: 5000
                       type: string
                     description:
-                      maxLength: 500
-                      type: string
+                      anyOf:
+                        - maxLength: 500
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     invoice_settings:
                       properties:
                         days_until_due:
@@ -95678,8 +96113,12 @@ paths:
                               - ''
                             type: string
                       description:
-                        maxLength: 500
-                        type: string
+                        anyOf:
+                          - maxLength: 500
+                            type: string
+                          - enum:
+                              - ''
+                            type: string
                       end_date:
                         anyOf:
                           - type: integer
@@ -96315,11 +96754,11 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. The request must be
-                    made by a platform account on a connected account in order
-                    to set an application fee percentage. For more information,
-                    see the application fees
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. The request must be made
+                    by a platform account on a connected account in order to set
+                    an application fee percentage. For more information, see the
+                    application fees
                     [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
                   type: number
                 automatic_tax:
@@ -97123,8 +97562,12 @@ paths:
                   description: Details about why this subscription was cancelled
                   properties:
                     comment:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     feedback:
                       enum:
                         - ''
@@ -97250,7 +97693,13 @@ paths:
               cancellation_details:
                 explode: true
                 style: deepObject
+              default_source:
+                explode: true
+                style: deepObject
               default_tax_rates:
+                explode: true
+                style: deepObject
+              description:
                 explode: true
                 style: deepObject
               expand:
@@ -97337,11 +97786,11 @@ paths:
                   description: >-
                     A non-negative decimal between 0 and 100, with at most two
                     decimal places. This represents the percentage of the
-                    subscription invoice subtotal that will be transferred to
-                    the application owner's Stripe account. The request must be
-                    made by a platform account on a connected account in order
-                    to set an application fee percentage. For more information,
-                    see the application fees
+                    subscription invoice total that will be transferred to the
+                    application owner's Stripe account. The request must be made
+                    by a platform account on a connected account in order to set
+                    an application fee percentage. For more information, see the
+                    application fees
                     [documentation](https://stripe.com/docs/connect/subscriptions#collecting-fees-on-subscriptions).
                   type: number
                 automatic_tax:
@@ -97407,8 +97856,12 @@ paths:
                   description: Details about why this subscription was cancelled
                   properties:
                     comment:
-                      maxLength: 5000
-                      type: string
+                      anyOf:
+                        - maxLength: 5000
+                          type: string
+                        - enum:
+                            - ''
+                          type: string
                     feedback:
                       enum:
                         - ''
@@ -97461,6 +97914,12 @@ paths:
                   maxLength: 5000
                   type: string
                 default_source:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     ID of the default payment source for the subscription. It
                     must belong to the customer associated with the subscription
@@ -97470,8 +97929,6 @@ paths:
                     [invoice_settings.default_payment_method](https://stripe.com/docs/api/customers/object#customer_object-invoice_settings-default_payment_method)
                     or
                     [default_source](https://stripe.com/docs/api/customers/object#customer_object-default_source).
-                  maxLength: 5000
-                  type: string
                 default_tax_rates:
                   anyOf:
                     - items:
@@ -97487,13 +97944,17 @@ paths:
                     their `default_tax_rates` populated from the subscription.
                     Pass an empty string to remove previously-defined tax rates.
                 description:
+                  anyOf:
+                    - maxLength: 500
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     The subscription's description, meant to be displayable to
                     the customer. Use this field to optionally store an
                     explanation of the subscription for rendering in Stripe
                     surfaces.
-                  maxLength: 500
-                  type: string
                 expand:
                   description: Specifies which fields in the response should be expanded.
                   items:
@@ -98183,23 +98644,43 @@ paths:
                     address:
                       properties:
                         city:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         country:
                           maxLength: 5000
                           type: string
                         line1:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         line2:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         postal_code:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         state:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       required:
                         - country
                       title: postal_address
@@ -100649,6 +101130,9 @@ paths:
               address:
                 explode: true
                 style: deepObject
+              configuration_overrides:
+                explode: true
+                style: deepObject
               expand:
                 explode: true
                 style: deepObject
@@ -100682,11 +101166,15 @@ paths:
                   title: optional_fields_address
                   type: object
                 configuration_overrides:
+                  anyOf:
+                    - maxLength: 1000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: >-
                     The ID of a configuration that will be used to customize all
                     readers in this location.
-                  maxLength: 1000
-                  type: string
                 display_name:
                   description: A name for the location.
                   maxLength: 1000
@@ -101042,6 +101530,9 @@ paths:
               expand:
                 explode: true
                 style: deepObject
+              label:
+                explode: true
+                style: deepObject
               metadata:
                 explode: true
                 style: deepObject
@@ -101055,9 +101546,13 @@ paths:
                     type: string
                   type: array
                 label:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: The new label of the reader.
-                  maxLength: 5000
-                  type: string
                 metadata:
                   anyOf:
                     - additionalProperties:
@@ -103378,8 +103873,12 @@ paths:
                           properties:
                             files:
                               items:
-                                maxLength: 500
-                                type: string
+                                anyOf:
+                                  - maxLength: 500
+                                    type: string
+                                  - enum:
+                                      - ''
+                                    type: string
                               type: array
                           title: documents_param
                           type: object
@@ -103387,8 +103886,12 @@ paths:
                           properties:
                             files:
                               items:
-                                maxLength: 500
-                                type: string
+                                anyOf:
+                                  - maxLength: 500
+                                    type: string
+                                  - enum:
+                                      - ''
+                                    type: string
                               type: array
                           title: documents_param
                           type: object
@@ -103396,8 +103899,12 @@ paths:
                           properties:
                             files:
                               items:
-                                maxLength: 500
-                                type: string
+                                anyOf:
+                                  - maxLength: 500
+                                    type: string
+                                  - enum:
+                                      - ''
+                                    type: string
                               type: array
                           title: documents_param
                           type: object
@@ -106471,11 +106978,19 @@ paths:
                                 - ''
                               type: string
                         name:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                         phone:
-                          maxLength: 5000
-                          type: string
+                          anyOf:
+                            - maxLength: 5000
+                              type: string
+                            - enum:
+                                - ''
+                              type: string
                       title: billing_details_inner_params
                       type: object
                     financial_account:
@@ -107940,6 +108455,9 @@ paths:
         content:
           application/x-www-form-urlencoded:
             encoding:
+              description:
+                explode: true
+                style: deepObject
               enabled_events:
                 explode: true
                 style: deepObject
@@ -108066,9 +108584,13 @@ paths:
                     to `false`.
                   type: boolean
                 description:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: An optional description of what the webhook is used for.
-                  maxLength: 5000
-                  type: string
                 enabled_events:
                   description: >-
                     The list of events to enable for this endpoint. You may
@@ -108445,6 +108967,9 @@ paths:
         content:
           application/x-www-form-urlencoded:
             encoding:
+              description:
+                explode: true
+                style: deepObject
               enabled_events:
                 explode: true
                 style: deepObject
@@ -108458,9 +108983,13 @@ paths:
               additionalProperties: false
               properties:
                 description:
+                  anyOf:
+                    - maxLength: 5000
+                      type: string
+                    - enum:
+                        - ''
+                      type: string
                   description: An optional description of what the webhook is used for.
-                  maxLength: 5000
-                  type: string
                 disabled:
                   description: Disable the webhook endpoint if set to true.
                   type: boolean
